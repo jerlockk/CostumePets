@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/home/jerlock/RiderProjects/Mascotas/Mascotas/Mascotas.csproj",
+    "projectUniqueName": "/home/jerlock/RiderProjects/CostumePets/Mascotas/Mascotas.csproj",
     "projectName": "Mascotas",
-    "projectPath": "/home/jerlock/RiderProjects/Mascotas/Mascotas/Mascotas.csproj",
-    "outputPath": "/home/jerlock/RiderProjects/Mascotas/Mascotas/obj/",
+    "projectPath": "/home/jerlock/RiderProjects/CostumePets/Mascotas/Mascotas.csproj",
+    "outputPath": "/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/",
     "projectStyle": "PackageReference",
     "fallbackFolders": [
       "/usr/share/dotnet/sdk/NuGetFallbackFolder"

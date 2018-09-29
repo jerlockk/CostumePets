@@ -1,2 +1,2 @@
 # CostumePets
-> Desarollado por: **JErsson Morales Alza** y **Laura Dominguez Barbosa**
+> Desarollado por: **Jersson Morales Alza** y **Laura Dominguez Barbosa**

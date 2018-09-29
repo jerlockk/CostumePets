@@ -40,21 +40,38 @@ namespace Mascotas.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "*Este campo es obligatorio")]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Correo electrónico")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "*Este campo es obligatorio")]
+            [StringLength(100, ErrorMessage = "La contraseña debe tener un mínimo de 6 caracteres y un máximo de 100", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Contraseña")]
             public string Password { get; set; }
 
+            [Required(ErrorMessage = "*Este campo es obligatorio")]
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirme su contraseña")]
+            [Compare("Password", ErrorMessage = "Las contraseñas no coinciden")]
             public string ConfirmPassword { get; set; }
+            [Required(ErrorMessage = "*Este campo es obligatorio")]
+            [MaxLength(14, ErrorMessage = "Este campo solo puede tener un máximo de 14 caracteres")]
+            [MinLength(10, ErrorMessage = "Este campo debe tener un mínimo de 10 caracteres")]
+            [Display(Name = "Número de identificación")]
+            public long NumIdentificacion { get; set; }
+            [Required(ErrorMessage = "*Este campo es obligatorio")]
+            [MaxLength(30, ErrorMessage = "Este campo solo puede tener un máximo de 30 caracteres")]
+            [MinLength(4, ErrorMessage = "Este campo debe tener un mínimo de 4 caracteres")]
+            public string Nombres { get; set; }
+            [Required(ErrorMessage = "*Este campo es obligatorio")]
+            [MaxLength(30, ErrorMessage = "Este campo solo puede tener un máximo de 30 caracteres")]
+            [MinLength(4, ErrorMessage = "Este campo debe tener un mínimo de 4 caracteres")]
+            public string Apellidos { get; set; }
+            [Required(ErrorMessage = "*Este campo es obligatorio")]
+            [Display(Name = "¿Acepta los términos y condiciones?")]
+            public bool EstadoTerminos { get; set; }
         }
 
         public void OnGet(string returnUrl = null)
