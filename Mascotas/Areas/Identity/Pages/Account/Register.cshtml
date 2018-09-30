@@ -43,9 +43,13 @@
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.EstadoTerminos"></label>
-                <input asp-for="Input.Nombres" class="checkbox" type="checkbox"/>
-                <span asp-validation-for="Input.EstadoTerminos" class="text-danger"></span>
+                <div class="checkbox">
+                    <label asp-for="Input.EstadoTerminos">
+                        <input asp-for="Input.EstadoTerminos"/>
+                        @Html.DisplayNameFor(m => m.Input.EstadoTerminos)
+                    </label>
+                    <span asp-validation-for="Input.EstadoTerminos" class="text-danger"></span>
+                </div>
             </div>
             <button type="submit" class="btn btn-default">Registrarse</button>
         </form>

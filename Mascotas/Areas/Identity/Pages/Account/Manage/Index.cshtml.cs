@@ -28,6 +28,7 @@ namespace Mascotas.Areas.Identity.Pages.Account.Manage
             _emailSender = emailSender;
         }
 
+        [Display(Name = "Nombre de usuario")]
         public string Username { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
@@ -42,10 +43,11 @@ namespace Mascotas.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [EmailAddress]
+            [Display(Name = "Correo electrónico")]
             public string Email { get; set; }
 
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Número telefonico")]
             public string PhoneNumber { get; set; }
         }
 
