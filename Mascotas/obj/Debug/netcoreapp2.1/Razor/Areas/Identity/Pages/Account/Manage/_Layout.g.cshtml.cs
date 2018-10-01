@@ -77,7 +77,7 @@ using Mascotas.Areas.Identity.Pages.Account.Manage;
             WriteLiteral("\r\n<h2>Administra tu cuenta</h2>\r\n\r\n<div>\r\n    <h4>Actualiza la información de tu cuenta</h4>\r\n    <hr />\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\">\r\n            ");
             EndContext();
             BeginContext(235, 29, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c1967130e42f4ab0bec06c8a96174be5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0fe69f06992d4edd9931cd9d77cc61ec", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
