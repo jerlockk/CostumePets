@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mascotas.Migrations
 {
-    public partial class InitialDB : Migration
+    public partial class InitiateDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,19 @@ namespace Mascotas.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ImagenProductos",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ImageUrl = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ImagenProductos", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -181,6 +194,29 @@ namespace Mascotas.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Productos",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NombreProducto = table.Column<string>(maxLength: 30, nullable: false),
+                    Descripcion = table.Column<string>(maxLength: 400, nullable: false),
+                    Precio = table.Column<float>(nullable: false),
+                    Estado = table.Column<bool>(nullable: false),
+                    ImagenId = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Productos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Productos_ImagenProductos_ImagenId",
+                        column: x => x.ImagenId,
+                        principalTable: "ImagenProductos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Calificaciones",
                 columns: table => new
                 {
@@ -236,46 +272,23 @@ namespace Mascotas.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Imagenes",
+                name: "ImagenPosts",
                 columns: table => new
                 {
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ImagenBytes = table.Column<byte[]>(nullable: false),
+                    ImageUrl = table.Column<string>(nullable: false),
                     PostId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Imagenes", x => x.Id);
+                    table.PrimaryKey("PK_ImagenPosts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Imagenes_Posts_PostId",
+                        name: "FK_ImagenPosts_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Productos",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    NombreProducto = table.Column<string>(maxLength: 30, nullable: false),
-                    Descripcion = table.Column<string>(maxLength: 400, nullable: false),
-                    Precio = table.Column<float>(nullable: false),
-                    Estado = table.Column<bool>(nullable: false),
-                    ImagenId = table.Column<long>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Productos", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Productos_Imagenes_ImagenId",
-                        column: x => x.ImagenId,
-                        principalTable: "Imagenes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -387,8 +400,8 @@ namespace Mascotas.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Imagenes_PostId",
-                table: "Imagenes",
+                name: "IX_ImagenPosts_PostId",
+                table: "ImagenPosts",
                 column: "PostId");
 
             migrationBuilder.CreateIndex(
@@ -439,22 +452,25 @@ namespace Mascotas.Migrations
                 name: "Comentarios");
 
             migrationBuilder.DropTable(
+                name: "ImagenPosts");
+
+            migrationBuilder.DropTable(
                 name: "Productoxposts");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "Productos");
-
-            migrationBuilder.DropTable(
-                name: "Imagenes");
-
-            migrationBuilder.DropTable(
                 name: "Posts");
 
             migrationBuilder.DropTable(
+                name: "Productos");
+
+            migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "ImagenProductos");
         }
     }
 }

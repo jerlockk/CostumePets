@@ -104,3 +104,5 @@
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Mascotas.dll
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Mascotas.pdb
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Mascotas.csproj.CopyComplete
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/Cats.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/Dogs.g.cshtml.cs

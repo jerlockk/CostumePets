@@ -141,12 +141,12 @@ namespace Mascotas.Migrations
                     b.ToTable("Comentarios");
                 });
 
-            modelBuilder.Entity("Mascotas.Models.Imagen", b =>
+            modelBuilder.Entity("Mascotas.Models.ImagenPost", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<byte[]>("ImagenBytes")
+                    b.Property<string>("ImageUrl")
                         .IsRequired();
 
                     b.Property<long?>("PostId");
@@ -155,7 +155,20 @@ namespace Mascotas.Migrations
 
                     b.HasIndex("PostId");
 
-                    b.ToTable("Imagenes");
+                    b.ToTable("ImagenPosts");
+                });
+
+            modelBuilder.Entity("Mascotas.Models.ImagenProducto", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ImagenProductos");
                 });
 
             modelBuilder.Entity("Mascotas.Models.Post", b =>
@@ -375,7 +388,7 @@ namespace Mascotas.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Mascotas.Models.Imagen", b =>
+            modelBuilder.Entity("Mascotas.Models.ImagenPost", b =>
                 {
                     b.HasOne("Mascotas.Models.Post")
                         .WithMany("Imagenes")
@@ -392,7 +405,7 @@ namespace Mascotas.Migrations
 
             modelBuilder.Entity("Mascotas.Models.Producto", b =>
                 {
-                    b.HasOne("Mascotas.Models.Imagen", "Imagen")
+                    b.HasOne("Mascotas.Models.ImagenProducto", "Imagen")
                         .WithMany()
                         .HasForeignKey("ImagenId")
                         .OnDelete(DeleteBehavior.Cascade);

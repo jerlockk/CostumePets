@@ -5,6 +5,12 @@
     padding-right: 15px;
 }
 
+.prueba {
+    height: 200px;
+    background-color: gray;
+    margin-bottom: 1em;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -14,11 +20,75 @@
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
+    height: calc(400px + 1em);
 }
 
 /* QR code generator */
 #qrCode {
     margin: 15px;
+}
+
+/** CUSTOM PROPERTIES*/
+.color-white {
+    color: white !important;
+    font-weight: bold;
+}
+
+.inner-padding{
+    padding-right: 10em;
+    padding-left: 10em;
+}
+
+.title-bold {
+    font-weight: bold;
+}
+
+.text-gray {
+    color: #959595;
+}
+
+.text-black {
+    color: black;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+/*Separator sections*/
+.section-dv {
+    margin: 1em 0;
+}
+
+.line {
+    width:38%;
+    border-top:1px solid #999;
+    position: relative;
+    top:10px;
+    float:left;
+}
+
+.title {
+    font-weight:bold;
+    float:left;
+    width: 20%;
+}
+
+.arrow-top {
+    font-size: 2.5em;
+    margin-left: .5em;
+    margin-top: -.2em;
+}
+
+.arrow-top:hover {
+    cursor: pointer;
+}
+/* HEADER*/
+.logo {
+    height: 80px;
+    width: 80px;
+    background-color: gray;
+    margin-right: 1em;
 }
 
 ul li.li-item {
@@ -30,13 +100,12 @@ ul li.li-item {
     background-color: #9acfea;
 }
 
-div.navlists {
-    background-color: #ececec;
+.search-buttons {
+    margin-top: 15px;
 }
 
-.color-white {
-    color: white !important;
-    font-weight: bold;
+div.navlists {
+    background-color: #ececec;
 }
 
 form.search {
@@ -51,10 +120,6 @@ form.search div {
     width: 90%;
 }
 
-.inner-padding{
-    padding-right: 10em;
-    padding-left: 10em;
-}
 .user-btn {
     position: relative;
 }
@@ -74,6 +139,50 @@ form.search div {
     cursor: pointer;
 }
 
+/*GALERY STYLES*/
+.slideshow {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+.slideshow-items {
+    white-space: nowrap;
+    transition: transform 1s ease-in-out;
+}
+
+.slideshow-item {
+    display: inline-block;
+    width: 25%;
+    height: 250px;
+}
+
+.image-prod {
+    width: 250px;
+}
+
+.scroller{
+    flex: 1;
+    overflow: hidden;
+}
+
+.btn-ctrl{
+    width: 30px;
+    border: none;
+    background: transparent;
+    color: gray;
+    font-size: 40px;
+    text-align: center;
+    outline: none;
+    opacity: 0.5;
+    transition: opacity 300ms ease-out;
+}
+
+.btn-ctrl:hover{
+     opacity: 1;
+ }
+
+
 /* custom bootstrap*/
 .dropdown-menu-custom {
     padding: 1em 2em;
@@ -81,6 +190,41 @@ form.search div {
 }
 .dropdown-menu-custom li{
     list-style: none;
+}
+
+/* FOOTER */
+section.footer-info {
+    background-color: #EFEFEF;
+}
+
+section.footer-info .promo {
+    width: 100px;
+    border: 2px outset gray;
+}
+
+#list-items-footer{
+    list-style: none;
+    padding: 0;
+}
+
+#list-items-footer li {
+    margin-bottom: 1em;
+    text-decoration: underline;
+}
+
+.social-footer {
+    margin-right: 1em;
+}
+
+.social-footer:hover {
+    cursor: pointer;
+    color: #cecece;
+}
+
+.paw {
+    font-size: 3em;
+    text-align: center;
+    display: block !important;
 }
 
 /* Hide/rearrange for smaller screens */
@@ -103,7 +247,7 @@ form.search div {
     }
 }
 
-
+/* CHANGE MEDIA QUERY COLLAPSE NAVBAR*/
 @media (max-width: 1333px) {
     .navbar-header {
         float: none;

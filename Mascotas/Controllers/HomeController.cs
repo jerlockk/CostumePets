@@ -1,16 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Mascotas.Models;
+using Mascotas.Areas.Identity.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mascotas.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly petsContext _context;
+
+        public HomeController(petsContext context)
+        {
+            _context = context;
+        }
+
+        public  ActionResult<ProductoPostMV> Index()
+        {
+            var productos = _context.Productos.Include(x => x.Imagen).Include(x => x.Categorias).ToList();
+            var posts =  _context.Posts.ToList();
+            var prodPostMv= new ProductoPostMV
+            {
+                Productos = productos,
+                Posts = posts
+            };
+            return View(prodPostMv);
+        }
+
+        public ActionResult Cats()
+        {
+            return View();
+        }
+
+        public ActionResult Dogs()
         {
             return View();
         }

@@ -2,10 +2,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mascotas.Models
 {
-    public class Imagen
+    public class ImagenPost
     {
         public long Id { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
-        public byte[] ImagenBytes { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

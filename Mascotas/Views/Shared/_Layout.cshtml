@@ -18,106 +18,148 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-static-top">
-        <div class="container-fluid">
-            <div class="row inner-padding top-header display-none">
-                <div class="col-md-6 center-block">
-                    <span class="navbar-brand color-white">COSPLAYS Y ACCESORIOS PARA TU SUPERMASCOTA</span>
-                </div>
-                <div class="col-md-6">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="" class="color-white">
-                                <i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i> Preguntas Frecuentes
-                            </a>
-                        </li>
-                        <li>
-                            <a asp-controller="Home" asp-action="Contact" class="color-white">
-                                <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Contáctanos
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="fab fa-facebook-f color-white"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-instagram color-white"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fab fa-twitter color-white"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="fab fa-youtube color-white"></i></a>
-                        </li>
-                    </ul>
-                </div>
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container-fluid">
+        <div class="row inner-padding top-header display-none">
+            <div class="col-md-6 center-block">
+                <span class="navbar-brand color-white">COSPLAYS Y ACCESORIOS PARA TU SUPERMASCOTA</span>
             </div>
-            <br>
-            <div class="navbar-header inner-padding">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img class="navbar-brand logo" src="~/images/logo_temp.jpg" alt="logo"/>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CostumePets</a>
-                <p class="navbar-text">Slogan</p>
-            </div>
-            <div class="row display-none inner-padding">
-                <form class="navbar-form navbar-left search">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="¿Qué estas buscando?">
-                    </div>
-                    <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <div class="dropdown">
-                    <p class="navbar-text navbar-right dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user-circle navbar-link user-cart"></i>
-                    </p>
-                    <div class="dropdown-menu menu-lr" aria-labelledby="dropdownMenu2">
-                        <partial name="_LoginPartial"/>
-                    </div>
-                </div>
-                <p class="navbar-text navbar-right"><i class="fas fa-shopping-cart navbar-link user-cart"></i></p>
-            </div>
-            <br>
-            <div class="row inner-padding navlists">
-                <ul class="nav  navbar-nav navbar-collapse collapse">
-                    <li class="li-item"><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
-                    <li class="li-item"><a asp-area="" asp-controller="Home" asp-action="About">Sobre CostumPets</a></li>
-                    <li class="li-item"><a asp-area="" >Para tu SuperCan</a></li>
-                    <li class="li-item"><a asp-area="" >Para tu SuperCat</a></li>
-                    <li class="li-item"><a asp-area="" >CostumBlog</a></li>
+            <div class="col-md-6">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="" class="color-white">
+                            <i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i> Preguntas Frecuentes
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Contact" class="color-white">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Contáctanos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"> <i class="fab fa-facebook-f color-white"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-instagram color-white"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fab fa-twitter color-white"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"> <i class="fab fa-youtube color-white"></i></a>
+                    </li>
                 </ul>
-                <span class="navbar-text navbar-right navlists display-none">
-                    <i class="fab fa-whatsapp"> +57 3211234567 | </i>
-                    <i class="far fa-clock"> 9:00AM-05:00PM</i>
-                </span>
             </div>
         </div>
-    </nav>
-    <partial name="_CookieConsentPartial" />
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - CostumPets</p>
-        </footer>
+        <br>
+        <div class="navbar-header inner-padding">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand logo" src="" alt="logo"/>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+                <p>CostumPets</p>
+                <small>Slogan</small>
+            </a>
+        </div>
+        <div class="row display-none inner-padding search-buttons">
+            <form class="navbar-form navbar-left search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="¿Qué estas buscando?">
+                </div>
+                <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <p class="navbar-text navbar-right"><i class="fas fa-shopping-cart navbar-link user-cart"></i></p>
+            <div class="dropdown">
+                <p class="navbar-text navbar-right dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-user-circle navbar-link user-cart"></i>
+                </p>
+                <div class="dropdown-menu menu-lr" aria-labelledby="dropdownMenu2">
+                    <partial name="_LoginPartial"/>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row inner-padding navlists">
+            <ul class="nav  navbar-nav navbar-collapse collapse">
+                <li class="li-item"><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+                <li class="li-item"><a asp-controller="Home" asp-action="About">Sobre CostumPets</a></li>
+                <li class="li-item"><a asp-controller="Home" asp-action="Dogs">Para tu SuperCan</a></li>
+                <li class="li-item"><a asp-controller="Home" asp-action="Cats">Para tu SuperCat</a></li>
+                <li class="li-item"><a >CostumBlog</a></li>
+            </ul>
+            <span class="navbar-text navbar-right navlists display-none">
+                <i class="fab fa-whatsapp"> +57 3211234567 | </i>
+                <i class="far fa-clock"> 9:00AM-05:00PM</i>
+            </span>
+        </div>
     </div>
+</nav>
+<partial name="_CookieConsentPartial" />
+<div class="inner-padding">
+    @RenderBody()
+</div>
+<section class="container-fluid inner-padding footer-info">
+    <br>
+    <div class="row">
+        <div class="col-md-3">
+            <p class="title-bold">Sobre CostumPets</p>
+            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent maximus congue dui in
+                blandit. Quisque molestie neque vel ipsum imperdiet luctus ac volutpat quam. Sed tristique
+                pellentesque lacinia. </p>
+            <br>
+            <i class="fas fa-paw paw"></i>
+        </div>
+        <div class="col-md-2">
+            <p class="title-bold">DE TU INTERÉS</p>
+            <ul id="list-items-footer">
+                <li><a href="#">Mapa de sitio</a></li>
+                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a asp-controller="Home" asp-action="Contact">Contáctanos</a></li>
+            </ul>
+            <br>
+            <i class="fab fa-facebook-f social-footer"></i>
+            <i class="fab fa-instagram social-footer"></i>
+            <i class="fab fa-twitter social-footer"></i>
+            <i class="fab fa-pinterest-p social-footer"></i>
+            <i class="fab fa-youtube social-footer"></i>
+        </div>
+        <div class="col-md-3">
+            <p class="title-bold">BOLETÍN</p>
+            <p>Suscribete a nuestro boletín y obtén información de nuestros eventos y promociones</p>
+            <br>
+            <input type="email" class="form-control" placeholder="Ingresa tu correo electrónico">
+            <br>
+            <button class="btn btn-info center-block">Suscribirse</button>
+        </div>
+        <div class="col-md-4">
+            <p class="title-bold">ENCUENTRÁNOS</p>
+            <div style="width: 100%"><iframe width="100%" height="200" src="https://maps.google.com/maps?width=100%&height=600&hl=es&q=Bogota%2C%20Colombia+(CostumPets)&ie=UTF8&t=&z=14&iwloc=B&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/crear-un-mapa-de-google/">Crear mapa interactivo</a> by <a href="https://www.mapsdirections.info/">Mapa España</a></iframe></div>
+        </div>
+    </div>
+    <br>
+</section>
+<br>
+<footer class="inner-padding text-center">
+    <p>Bogotá: Calle 150 #10-35 - C.C Las Mascotas | Cali: C.C Mascoticas Center L-209</p>
+    <p>&copy; 2018 - <strong>CostumPets</strong> Todos los derechos reservados.</p>
+</footer>
+<environment include="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
+<environment exclude="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-
-    @RenderSection("Scripts", required: false)
+@RenderSection("Scripts", required: false)
 </body>
 </html>

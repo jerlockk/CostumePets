@@ -21,7 +21,8 @@ namespace Mascotas.Areas.Identity.Data
 
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
-        public DbSet<Imagen> Imagenes { get; set; }
+        public DbSet<ImagenPost> ImagenPosts { get; set; }
+        public DbSet<ImagenProducto> ImagenProductos { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Productoxpost> Productoxposts { get; set; }
         public DbSet<Comentario> Comentarios { get; set; }

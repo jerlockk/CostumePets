@@ -22,7 +22,7 @@ namespace Mascotas.Models
         [Required(ErrorMessage = "*Este campo es obligatorio")]
         public bool Estado { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
-        public Imagen Imagen { get; set; }
+        public ImagenProducto Imagen { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
         public List<Categoria> Categorias { get; set; }
     }
