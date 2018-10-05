@@ -14,7 +14,7 @@ namespace Mascotas.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.3-rtm-32065");
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
             modelBuilder.Entity("Mascotas.Areas.Identity.Data.UserIdentity", b =>
                 {
@@ -84,7 +84,7 @@ namespace Mascotas.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<long>("PostId");
+                    b.Property<long?>("PostId");
 
                     b.Property<string>("UsuarioId")
                         .IsRequired();
@@ -108,11 +108,7 @@ namespace Mascotas.Migrations
                     b.Property<string>("NomCategoria")
                         .IsRequired();
 
-                    b.Property<long?>("ProductoId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("ProductoId");
 
                     b.ToTable("Categorias");
                 });
@@ -127,7 +123,7 @@ namespace Mascotas.Migrations
                     b.Property<string>("Mensaje")
                         .IsRequired();
 
-                    b.Property<long>("PostId");
+                    b.Property<long?>("PostId");
 
                     b.Property<string>("UsuarioId")
                         .IsRequired();
@@ -181,6 +177,8 @@ namespace Mascotas.Migrations
 
                     b.Property<bool>("Estado");
 
+                    b.Property<DateTime>("FechaPublicacion");
+
                     b.Property<string>("Materiales")
                         .IsRequired();
 
@@ -205,6 +203,8 @@ namespace Mascotas.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<long>("CategoriaId");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasMaxLength(400);
@@ -219,7 +219,13 @@ namespace Mascotas.Migrations
 
                     b.Property<float>("Precio");
 
+                    b.Property<string>("TipoMascota")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
 
                     b.HasIndex("ImagenId");
 
@@ -357,10 +363,9 @@ namespace Mascotas.Migrations
 
             modelBuilder.Entity("Mascotas.Models.Calificacion", b =>
                 {
-                    b.HasOne("Mascotas.Models.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("Mascotas.Models.Post")
+                        .WithMany("Calificacions")
+                        .HasForeignKey("PostId");
 
                     b.HasOne("Mascotas.Areas.Identity.Data.UserIdentity", "Usuario")
                         .WithMany()
@@ -368,19 +373,11 @@ namespace Mascotas.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Mascotas.Models.Categoria", b =>
-                {
-                    b.HasOne("Mascotas.Models.Producto")
-                        .WithMany("Categorias")
-                        .HasForeignKey("ProductoId");
-                });
-
             modelBuilder.Entity("Mascotas.Models.Comentario", b =>
                 {
-                    b.HasOne("Mascotas.Models.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                    b.HasOne("Mascotas.Models.Post")
+                        .WithMany("Comentarios")
+                        .HasForeignKey("PostId");
 
                     b.HasOne("Mascotas.Areas.Identity.Data.UserIdentity", "Usuario")
                         .WithMany()
@@ -405,6 +402,11 @@ namespace Mascotas.Migrations
 
             modelBuilder.Entity("Mascotas.Models.Producto", b =>
                 {
+                    b.HasOne("Mascotas.Models.Categoria", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Mascotas.Models.ImagenProducto", "Imagen")
                         .WithMany()
                         .HasForeignKey("ImagenId")

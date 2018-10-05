@@ -87,10 +87,6 @@
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/_ValidationScriptsPartial.g.cshtml.cs
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/_ViewImports.g.cshtml.cs
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Areas/Identity/Pages/_ViewStart.g.cshtml.cs
-/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/About.g.cshtml.cs
-/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/Contact.g.cshtml.cs
-/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/Index.g.cshtml.cs
-/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/Privacy.g.cshtml.cs
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Shared/Error.g.cshtml.cs
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_CookieConsentPartial.g.cshtml.cs
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_Layout.g.cshtml.cs
@@ -104,5 +100,12 @@
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Mascotas.dll
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Mascotas.pdb
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Mascotas.csproj.CopyComplete
-/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/Cats.g.cshtml.cs
-/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Home/Dogs.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/About.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Cats.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Contact.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Dogs.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Index.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Posts.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Privacy.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/_Aside.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Post.g.cshtml.cs

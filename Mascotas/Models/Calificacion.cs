@@ -10,8 +10,6 @@ namespace Mascotas.Models
         [Display(Name = "Calificación")]
         public int Valor { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
-        public Post Post { get; set; }
-        [Required(ErrorMessage = "*Este campo es obligatorio")]
         public UserIdentity Usuario { get; set; }
     }
 }

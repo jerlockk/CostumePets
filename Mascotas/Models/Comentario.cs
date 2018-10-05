@@ -13,7 +13,5 @@ namespace Mascotas.Models
         public DateTime FechaPublicacion { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
         public UserIdentity Usuario { get; set; }
-        [Required(ErrorMessage = "*Este campo es obligatorio")]
-        public Post Post { get; set; }
     }
 }

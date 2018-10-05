@@ -83,12 +83,12 @@ using Mascotas.Areas.Identity.Data;
             WriteLiteral("    ");
             EndContext();
             BeginContext(220, 545, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f10e9d1d90164c75bfe5f261cb15c23b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8823436b3b234263ae7525621eec044c", async() => {
                 BeginContext(364, 79, true);
                 WriteLiteral("\r\n        <ul class=\"dropdown-menu-custom\">\r\n            <li>\r\n                ");
                 EndContext();
                 BeginContext(443, 132, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53fd79f55d9c491d93c388a86854aa33", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ec79bb78fc474d08ba5f19dfb6d7d31b", async() => {
                     BeginContext(558, 13, true);
                     WriteLiteral("Editar perfil");
                     EndContext();
@@ -161,7 +161,7 @@ else
             WriteLiteral("    <ul class=\"dropdown-menu-custom\">\r\n        <li>\r\n            ");
             EndContext();
             BeginContext(844, 111, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c16bca150b0f4ea5a1ac12d8f407307a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6f8ee65cb43449abb6a5d22ea390dcb0", async() => {
                 BeginContext(940, 11, true);
                 WriteLiteral("Registrarse");
                 EndContext();
@@ -186,7 +186,7 @@ else
             WriteLiteral("\r\n        </li>\r\n        <li>\r\n            ");
             EndContext();
             BeginContext(998, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2d235a471b8a44d4aad4fc76d94cd068", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "586dfd417c544f68bb725b46adf6b160", async() => {
                 BeginContext(1091, 13, true);
                 WriteLiteral("Inciar Sesión");
                 EndContext();

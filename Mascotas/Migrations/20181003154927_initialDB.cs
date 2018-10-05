@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mascotas.Migrations
 {
-    public partial class InitiateDB : Migration
+    public partial class initialDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -48,6 +48,19 @@ namespace Mascotas.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NomCategoria = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,6 +192,7 @@ namespace Mascotas.Migrations
                     Materiales = table.Column<string>(nullable: false),
                     Contenido = table.Column<string>(nullable: false),
                     Estado = table.Column<bool>(nullable: false),
+                    FechaPublicacion = table.Column<DateTime>(nullable: false),
                     UrlVideo = table.Column<string>(nullable: false),
                     UsuarioId = table.Column<string>(nullable: false)
                 },
@@ -202,12 +216,20 @@ namespace Mascotas.Migrations
                     NombreProducto = table.Column<string>(maxLength: 30, nullable: false),
                     Descripcion = table.Column<string>(maxLength: 400, nullable: false),
                     Precio = table.Column<float>(nullable: false),
+                    TipoMascota = table.Column<string>(maxLength: 20, nullable: false),
                     Estado = table.Column<bool>(nullable: false),
-                    ImagenId = table.Column<long>(nullable: false)
+                    ImagenId = table.Column<long>(nullable: false),
+                    CategoriaId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Productos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Productos_Categorias_CategoriaId",
+                        column: x => x.CategoriaId,
+                        principalTable: "Categorias",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Productos_ImagenProductos_ImagenId",
                         column: x => x.ImagenId,
@@ -223,8 +245,8 @@ namespace Mascotas.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Valor = table.Column<int>(nullable: false),
-                    PostId = table.Column<long>(nullable: false),
-                    UsuarioId = table.Column<string>(nullable: false)
+                    UsuarioId = table.Column<string>(nullable: false),
+                    PostId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -234,7 +256,7 @@ namespace Mascotas.Migrations
                         column: x => x.PostId,
                         principalTable: "Posts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Calificaciones_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
@@ -252,7 +274,7 @@ namespace Mascotas.Migrations
                     Mensaje = table.Column<string>(nullable: false),
                     FechaPublicacion = table.Column<DateTime>(nullable: false),
                     UsuarioId = table.Column<string>(nullable: false),
-                    PostId = table.Column<long>(nullable: false)
+                    PostId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -262,7 +284,7 @@ namespace Mascotas.Migrations
                         column: x => x.PostId,
                         principalTable: "Posts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Comentarios_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
@@ -287,26 +309,6 @@ namespace Mascotas.Migrations
                         name: "FK_ImagenPosts_Posts_PostId",
                         column: x => x.PostId,
                         principalTable: "Posts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Categorias",
-                columns: table => new
-                {
-                    Id = table.Column<long>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    NomCategoria = table.Column<string>(nullable: false),
-                    ProductoId = table.Column<long>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categorias", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Categorias_Productos_ProductoId",
-                        column: x => x.ProductoId,
-                        principalTable: "Productos",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -385,11 +387,6 @@ namespace Mascotas.Migrations
                 column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categorias_ProductoId",
-                table: "Categorias",
-                column: "ProductoId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Comentarios_PostId",
                 table: "Comentarios",
                 column: "PostId");
@@ -408,6 +405,11 @@ namespace Mascotas.Migrations
                 name: "IX_Posts_UsuarioId",
                 table: "Posts",
                 column: "UsuarioId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Productos_CategoriaId",
+                table: "Productos",
+                column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Productos_ImagenId",
@@ -446,9 +448,6 @@ namespace Mascotas.Migrations
                 name: "Calificaciones");
 
             migrationBuilder.DropTable(
-                name: "Categorias");
-
-            migrationBuilder.DropTable(
                 name: "Comentarios");
 
             migrationBuilder.DropTable(
@@ -468,6 +467,9 @@ namespace Mascotas.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Categorias");
 
             migrationBuilder.DropTable(
                 name: "ImagenProductos");

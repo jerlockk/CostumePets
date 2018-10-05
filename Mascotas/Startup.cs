@@ -46,7 +46,7 @@ namespace Mascotas
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Costum/Error");
                 app.UseHsts();
             }
 
@@ -58,7 +58,7 @@ namespace Mascotas
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Costum}/{action=Index}/{id?}");
             });
         }
     }

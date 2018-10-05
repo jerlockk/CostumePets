@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using Mascotas.Areas.Identity.Data
+@inject SignInManager<UserIdentity> SignInManager
+@inject UserManager<UserIdentity> UserManager
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,6 +12,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/blog.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     </environment>
     <environment exclude="Development">
@@ -28,12 +33,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="" class="color-white">
-                            <i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i> Preguntas Frecuentes
+                            <i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i>
+                            Preguntas Frecuentes
                         </a>
                     </li>
                     <li>
-                        <a asp-controller="Home" asp-action="Contact" class="color-white">
-                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Contáctanos
+                        <a asp-controller="Costum" asp-action="Contact" class="color-white">
+                            <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
+                            Contáctanos
                         </a>
                     </li>
                     <li>
@@ -60,7 +67,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="navbar-brand logo" src="" alt="logo"/>
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">
+            <a asp-area="" asp-controller="Costum" asp-action="Index" class="navbar-brand">
                 <p>CostumPets</p>
                 <small>Slogan</small>
             </a>
@@ -74,7 +81,18 @@
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <p class="navbar-text navbar-right"><i class="fas fa-shopping-cart navbar-link user-cart"></i></p>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <div class="dropdown">
+                    <p class="navbar-text navbar-right dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-shopping-cart navbar-link user-cart"></i>
+                    </p>
+                    <div class="dropdown-menu menu-lr dropdown-cart" aria-labelledby="dropdownMenu1">
+                        <h5 class="text-center title-bold">Productos añadidos</h5>
+                        <ul class="list-group" id="list-prods"></ul>
+                    </div>
+                </div>
+            }
             <div class="dropdown">
                 <p class="navbar-text navbar-right dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user-circle navbar-link user-cart"></i>
@@ -87,11 +105,11 @@
         <br>
         <div class="row inner-padding navlists">
             <ul class="nav  navbar-nav navbar-collapse collapse">
-                <li class="li-item"><a asp-controller="Home" asp-action="Index">Inicio</a></li>
-                <li class="li-item"><a asp-controller="Home" asp-action="About">Sobre CostumPets</a></li>
-                <li class="li-item"><a asp-controller="Home" asp-action="Dogs">Para tu SuperCan</a></li>
-                <li class="li-item"><a asp-controller="Home" asp-action="Cats">Para tu SuperCat</a></li>
-                <li class="li-item"><a >CostumBlog</a></li>
+                <li class="li-item"><a asp-controller="Costum" asp-action="Index">Inicio</a></li>
+                <li class="li-item"><a asp-controller="Costum" asp-action="About">Sobre CostumPets</a></li>
+                <li class="li-item"><a asp-controller="Costum" asp-action="Dogs">Para tu SuperCan</a></li>
+                <li class="li-item"><a asp-controller="Costum" asp-action="Cats">Para tu SuperCat</a></li>
+                <li class="li-item"><a asp-controller="Costum" asp-action="Posts">CostumBlog</a></li>
             </ul>
             <span class="navbar-text navbar-right navlists display-none">
                 <i class="fab fa-whatsapp"> +57 3211234567 | </i>
@@ -120,7 +138,7 @@
             <ul id="list-items-footer">
                 <li><a href="#">Mapa de sitio</a></li>
                 <li><a href="#">Preguntas frecuentes</a></li>
-                <li><a asp-controller="Home" asp-action="Contact">Contáctanos</a></li>
+                <li><a asp-controller="Costum" asp-action="Contact">Contáctanos</a></li>
             </ul>
             <br>
             <i class="fab fa-facebook-f social-footer"></i>

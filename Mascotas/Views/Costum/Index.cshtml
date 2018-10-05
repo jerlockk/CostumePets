@@ -1,4 +1,8 @@
-﻿@model ProductoPostMV
+﻿@using Microsoft.AspNetCore.Identity
+@using Mascotas.Areas.Identity.Data
+@inject UserManager<UserIdentity> UserManager
+@inject SignInManager<UserIdentity> SignInManager
+@model ProductoPostMV
 @{
     ViewData["Title"] = "Inicio";
 }
@@ -81,7 +85,7 @@
 <div class="container-fluid section-dv">
     <div style="width: 100%; margin: auto">
         <div class="line">&nbsp;</div>
-        <div class="title text-center"><span>DESTACADOS</span></div>
+        <div class="title text-center"><span>PRODUCTOS</span></div>
         <div class="line">&nbsp;</div>
         <i class="fas fa-angle-up arrow-top" onclick="goToUp();"></i>
     </div>
@@ -92,11 +96,20 @@
         <div class="slideshow-items">
             @foreach (var item in Model.Productos)
             {
-                <div class="slideshow-item text-center">
-                    <img src="~/images/Products/@Html.DisplayFor(modelItem => item.Imagen.ImageUrl)" alt="img" class="image-prod">
-                    <h4 class="text-capitalize text-gray text-italic title-bold">@Html.DisplayFor(modelItem => item.NombreProducto)</h4>
-                    <p class="text-gray">@Html.DisplayFor(modelItem => item.Descripcion)</p>
-                    <p class="text-black title-bold">@Html.DisplayFor(modelItem => item.Precio)</p>
+                <div class="slideshow-item text-center card-efect-hover">
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <i class="fas fa-cart-plus btn-to-cart"
+                        data-toggle="modal" data-target=".modal-success-cart"></i>
+                    }
+                    <img src="~/images/Products/@Html.DisplayFor(modelItem => item.Imagen.ImageUrl)"
+                     alt="producto" class="image-prod">
+                    <h4 class="text-capitalize text-gray text-italic title-bold title-prod">
+                        @Html.DisplayFor(modelItem => item.NombreProducto)
+                    </h4>
+                    <p class="text-black title-bold price-prod">
+                        @Html.DisplayFor(modelItem => item.Precio)
+                    </p>
                 </div>
             }
         </div>
@@ -119,4 +132,11 @@
     </div>
 </div>
 
+<div class="modal fade modal-success-cart" tabindex="-1" role="dialog" aria-labelledby="SuccessCart">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content text-center">
+            <p class="title-bold text-uppercase">El producto ha sido añadido al carrito</p>
+        </div>
+    </div>
+</div>
 

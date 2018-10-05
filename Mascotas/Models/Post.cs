@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Mascotas.Areas.Identity.Data;
@@ -17,6 +18,8 @@ namespace Mascotas.Models
         [Required(ErrorMessage = "*Este campo es obligatorio")]
         public bool Estado { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
+        public DateTime FechaPublicacion { get; set; }
+        [Required(ErrorMessage = "*Este campo es obligatorio")]
         [Display(Name = "Video")]
         public string UrlVideo { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
@@ -25,5 +28,9 @@ namespace Mascotas.Models
         public List<ImagenPost> Imagenes { get; set; }
         [Required(ErrorMessage = "Debe agregar minimo un producto")]
         public List<Productoxpost> Productoxposts { get; set; }
+        [Required(ErrorMessage = "*Este campo es obligatorio")]
+        public List<Comentario> Comentarios { get; set; }
+        [Required(ErrorMessage = "*Este campo es obligatorio")]
+        public List<Calificacion> Calificaciones { get; set; }
     }
 }

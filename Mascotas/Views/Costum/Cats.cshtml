@@ -1,0 +1,31 @@
+@model IEnumerable<Producto>
+@{
+    ViewData["Title"] = "Para tu SuperCat";
+}
+<div class="row">
+    <div class="col-md-9">
+        <h2 class="text-center page-header">@ViewData["Title"]</h2>
+        <br>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 text-center card-col">
+                    <div class="card-prod">
+                        <img src="~/images/Products/@Html.DisplayFor(modelItem =>
+                        item.Imagen.ImageUrl)" alt="producto" class="images-catalog">
+                        <div class="card-content">
+                            <p class="text-italic title-bold" style="margin: 0">
+                                @Html.DisplayFor(modelItem => item.NombreProducto)
+                            </p>
+                            <hr style="margin: 0">
+                            <p class="text-justify">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            <p class="price-prod">@Html.DisplayFor(modelItem => item.Precio)</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+

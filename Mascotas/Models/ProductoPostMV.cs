@@ -6,5 +6,9 @@ namespace Mascotas.Models
     {
         public List<Producto> Productos { get; set; }
         public List<Post> Posts { get; set; }
+        Producto p = new Producto
+        {
+
+        };
     }
 }

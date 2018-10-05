@@ -20,10 +20,14 @@ namespace Mascotas.Models
         [DataType(DataType.Currency)]
         public float Precio { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
+        [MaxLength(20, ErrorMessage = "Este campo solo puede tener un máximo de 20 caracteres")]
+        [MinLength(2, ErrorMessage = "Este campo debe tener un mínimo de 2 caracteres")]
+        public string TipoMascota { get; set; }
+        [Required(ErrorMessage = "*Este campo es obligatorio")]
         public bool Estado { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
         public ImagenProducto Imagen { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
-        public List<Categoria> Categorias { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }

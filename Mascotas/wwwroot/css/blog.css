@@ -1,0 +1,81 @@
+/*BLOG STYLES*/
+.title-blog {
+    text-decoration: underline;
+    color: #616161;
+}
+
+div.media {
+    box-shadow: 3px 3px 3px #cecece;
+}
+
+a.float-right {
+    float: right;
+}
+
+.media-left img {
+    height: 150px;
+}
+
+.media-body {
+    padding: 1em;
+}
+
+.comment-cal {
+    font-size: 1.3em;
+    float: right;
+}
+
+/*CATS STYLES*/
+.images-catalog {
+    width: 100%;
+}
+.card-prod {
+    box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
+    padding: 2px 16px;
+    margin-bottom: 1.5em;
+}
+
+.card-prod:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-content {
+    margin-top: 5px;
+}
+
+.card-col {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.price-prod {
+    text-decoration: underline;
+}
+
+
+
+/*ASIDE*/
+.categoria-aside {
+    display: block;
+    height: 150px;
+    background-color: gray;
+    margin-bottom: 1em;
+}
+
+.separator-blog {
+    margin: 0 0 15px 0;
+}
+
+.center-v {
+    padding-top: 4em;
+}
+
+.card-aside {
+    border-bottom: 1px solid #cecece;
+    margin-bottom: 1em;
+}
+
+.card-aside .title-bold {
+    margin-bottom: 2em;
+}
