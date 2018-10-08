@@ -12,6 +12,8 @@ namespace Mascotas.Models
         [Display(Name = "Título")]
         public string Titulo { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
+        public string Subtitulo { get; set; }
+        [Required(ErrorMessage = "*Este campo es obligatorio")]
         public string Materiales { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
         public string Contenido { get; set; }
@@ -32,5 +34,7 @@ namespace Mascotas.Models
         public List<Comentario> Comentarios { get; set; }
         [Required(ErrorMessage = "*Este campo es obligatorio")]
         public List<Calificacion> Calificaciones { get; set; }
+        [Required(ErrorMessage = "*Este campo es obligatorio")]
+        public Categoria Categoria { get; set; }
     }
 }

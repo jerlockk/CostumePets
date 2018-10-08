@@ -2,64 +2,63 @@
 @{
     ViewData["Title"] = "COSTUMBLOG";
 }
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h2 class="title-bold text-center title-blog">@ViewData["Title"]</h2>
-            @foreach (var item in Model.Posts)
-            {
-                <div class="media">
-                    <div class="media-left">
-                        <img class="media-object"
-                             src="~/images/Products/@Html.DisplayFor(modelItem => item.Imagenes[0].ImageUrl)"
-                             alt="image main">
-                    </div>
-                    <div class="media-body">
-                        <p class="comment-cal">
-                            <i class="far fa-comments"></i>
-                            @Html.DisplayFor(modelItem => item.Comentarios.Count) |
-                            @{
-                                var calificacion = 0.0;
-                                var id = item.Id;
-                                Console.WriteLine(id);
-                                if (item.Calificaciones.Count > 1)
-                                {
-                                    calificacion = item.Calificaciones.Average(x => x.Valor);
-                                }
-
-                            }
-                            @if ( calificacion == 0.0)
-                            {
-                                <i class="far fa-star"></i>
-                            }
-                            else if(calificacion != Math.Floor(calificacion)) {
-                                for (var i=0; i < calificacion-1; i++)
-                                {
-                                    <i class="fas fa-star"></i>
-                                }
-                                <i class="fas fa-star-half-alt"></i>
-                            }
-                            else
-                            {
-                                for (var i=0; i < calificacion; i++)
-                                {
-                                    <i class="fas fa-star"></i>
-                                }
-                            }
-                        </p>
-                        <h4 class="media-heading">@Html.DisplayFor(modelItem => item.Titulo)</h4>
-                        <small>@Html.DisplayFor(modelItem => item.FechaPublicacion)</small>
-                        <p>@Html.DisplayFor(modelItem => item.Contenido)</p>
-                        <a class="btn btn-default float-right"
-                        asp-controller="Costum" asp-action="Post" asp-route-id="@id">Ver más</a>
-                    </div>
+<div class="row">
+    <div class="col-md-8">
+        <h2 class="title-bold text-center title-blog">@ViewData["Title"]</h2>
+        @foreach (var item in Model.Posts)
+        {
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object"
+                         src="~/images/Products/@Html.DisplayFor(modelItem => item.Imagenes[0].ImageUrl)"
+                         alt="image main">
                 </div>
-                <br>
-            }
-        </div>
-        <div class="col-md-4">
-            @Html.Partial("_Aside")
-        </div>
+                <div class="media-body">
+                    <p class="comment-cal">
+                        <i class="far fa-comments"></i>
+                        @Html.DisplayFor(modelItem => item.Comentarios.Count) |
+                        @{
+                            var calificacion = 0.0;
+                            var id = item.Id;
+                            if (item.Calificaciones.Count > 0)
+                            {
+                                calificacion = item.Calificaciones.Average(x => x.Valor);
+                            }
+
+                        }
+                        @if ( calificacion == 0.0)
+                        {
+                            <i class="far fa-star"></i>
+                        }
+                        else if(calificacion != Math.Floor(calificacion)) {
+                            for (var i=0; i < calificacion-1; i++)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                            <i class="fas fa-star-half-alt"></i>
+                        }
+                        else
+                        {
+                            for (var i=0; i < calificacion; i++)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                        }
+                    </p>
+                    <h4 class="media-heading">@Html.DisplayFor(modelItem => item.Titulo)</h4>
+                    <small>@Html.DisplayFor(modelItem => item.FechaPublicacion)</small>
+                    <p>@Html.DisplayFor(modelItem => item.Contenido)</p>
+                    <a class="btn btn-primary float-right"
+                       asp-controller="Costum" asp-action="Post" asp-route-id="@id">
+                        Ver más
+                    </a>
+                </div>
+            </div>
+            <br>
+        }
+    </div>
+    <div class="col-md-4">
+        @Html.Partial("_Aside")
     </div>
 </div>
 

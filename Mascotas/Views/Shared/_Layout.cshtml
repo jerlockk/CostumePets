@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CostumPets</title>
-
+    <link rel="shortcut icon" type="image/png" href="~/favicon.png"/>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -66,7 +66,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img class="navbar-brand logo" src="" alt="logo"/>
+            <img class="navbar-brand logo" src="~/images/Logo.png" alt="logo"/>
             <a asp-area="" asp-controller="Costum" asp-action="Index" class="navbar-brand">
                 <p>CostumPets</p>
                 <small>Slogan</small>
@@ -112,12 +112,24 @@
                 <li class="li-item"><a asp-controller="Costum" asp-action="Posts">CostumBlog</a></li>
             </ul>
             <span class="navbar-text navbar-right navlists display-none">
-                <i class="fab fa-whatsapp"> +57 3211234567 | </i>
-                <i class="far fa-clock"> 9:00AM-05:00PM</i>
+                <i class="fab fa-whatsapp" style="color: #52CB5F"> </i> +57 3211234567 |
+                <i class="far fa-clock" style="color: #9ACFEA"> </i> 9:00AM-05:00PM
             </span>
         </div>
     </div>
 </nav>
+<environment include="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/rater.min.js" asp-append-version="true"></script>
+</environment>
+<environment exclude="Development">
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/rater.min.js" asp-append-version="true"></script>
+</environment>
 <partial name="_CookieConsentPartial" />
 <div class="inner-padding">
     @RenderBody()
@@ -131,7 +143,9 @@
                 blandit. Quisque molestie neque vel ipsum imperdiet luctus ac volutpat quam. Sed tristique
                 pellentesque lacinia. </p>
             <br>
-            <i class="fas fa-paw paw"></i>
+            <div class="text-center">
+                <img id="logo-footer" src="~/images/LogoFooter.png" alt="logo-footer">
+            </div>
         </div>
         <div class="col-md-2">
             <p class="title-bold">DE TU INTERÉS</p>
@@ -167,16 +181,6 @@
     <p>Bogotá: Calle 150 #10-35 - C.C Las Mascotas | Cali: C.C Mascoticas Center L-209</p>
     <p>&copy; 2018 - <strong>CostumPets</strong> Todos los derechos reservados.</p>
 </footer>
-<environment include="Development">
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</environment>
-<environment exclude="Development">
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-</environment>
 
 @RenderSection("Scripts", required: false)
 </body>

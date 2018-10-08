@@ -1,20 +1,25 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using Mascotas.Models;
 using Mascotas.Areas.Identity.Data;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace Mascotas.Controllers
 {
     public class CostumController : Controller
     {
         private readonly petsContext _context;
-
-        public CostumController(petsContext context)
+        private readonly UserManager<UserIdentity> _userManager;
+        public CostumController(petsContext context,
+                                 UserManager<UserIdentity> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public async Task<ActionResult<ProductoPostMV>> Index()
@@ -46,23 +51,15 @@ namespace Mascotas.Controllers
 
         public async Task<ActionResult<ProductoPostMV>> Posts()
         {
-            var posts = (from p in _context.Posts
-                select new Post
-                {
-                    Titulo = p.Titulo,
-                    Contenido = p.Contenido,
-                    FechaPublicacion = p.FechaPublicacion,
-                    Imagenes = p.Imagenes,
-                    Comentarios = p.Comentarios,
-                    Calificaciones = p.Calificaciones
-                }).ToListAsync();
-                var productos = _context.Productos.
-                Include(x => x.Imagen).ToListAsync();
-                var result = new ProductoPostMV
-                {
-                    Posts = await posts,
-                    Productos = await productos
-                };
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+            Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
+            var productos = _context.Productos.Include(x => x.Imagen)
+            .ToListAsync();
+            var result = new ProductoPostMV
+            {
+                Posts = await posts,
+                Productos = await productos
+            };
             ViewData["Aside"] = result;
             return View(result);
         }
@@ -70,16 +67,8 @@ namespace Mascotas.Controllers
         public async Task<ActionResult<Post>> Post(long id)
         {
             var post = _context.Posts.FindAsync(id);
-            var posts = (from p in _context.Posts
-                select new Post
-                {
-                    Titulo = p.Titulo,
-                    Contenido = p.Contenido,
-                    FechaPublicacion = p.FechaPublicacion,
-                    Imagenes = p.Imagenes,
-                    Comentarios = p.Comentarios,
-                    Calificaciones = p.Calificaciones
-                }).ToListAsync();
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+                Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
             var productos = _context.Productos.
                 Include(x => x.Imagen).ToListAsync();
             var result = new ProductoPostMV
@@ -89,6 +78,22 @@ namespace Mascotas.Controllers
             };
             ViewData["Aside"] = result;
             return View(await post);
+        }
+
+        [HttpPost]
+        public JsonResult SaveComment(Comentario c)
+        {
+            _context.Comentarios.Add(c);
+            _context.SaveChanges();
+            return Json("Comentario guardado con exito");
+        }
+
+        public JsonResult RemoveComment(long id)
+        {
+            var c = _context.Comentarios.Find(id);
+            _context.Comentarios.Remove(c);
+            _context.SaveChanges();
+            return Json("Comentario eliminado con exito");
         }
 
         public IActionResult About()

@@ -8,7 +8,7 @@ div.media {
     box-shadow: 3px 3px 3px #cecece;
 }
 
-a.float-right {
+.float-right {
     float: right;
 }
 
@@ -23,6 +23,9 @@ a.float-right {
 .comment-cal {
     font-size: 1.3em;
     float: right;
+}
+hr {
+    border-color: #9acfea;
 }
 
 /*CATS STYLES*/
@@ -53,14 +56,62 @@ a.float-right {
     text-decoration: underline;
 }
 
+/*INDIVIDUAL POST*/
+.section-post {
+    border: .4em solid #f3f3f3;
+    box-shadow: 3px 3px 4px #a8a8a8;
+    padding: 2em;
+}
+.line-dotted {
+    width: 100%;
+    border-bottom: 4px dotted gray;
+    margin: 1.5em 0;
+}
 
+.form-commets textarea {
+    margin-bottom: 1em;
+    resize: none;
+}
+
+.comment {
+    padding-left: 3em;
+    margin: 1em 0;
+}
+
+.comment div {
+    border-left: 1em solid #ddd;
+    padding-left: 1em;
+    text-align: justify;
+}
+
+.comment p {
+    margin: 0;
+    text-align: justify;
+}
+
+.comment i {
+    font-size: 3em;
+    color: #9acfea;
+    margin-right: .8em;
+    display: inline;
+}
 
 /*ASIDE*/
 .categoria-aside {
     display: block;
-    height: 150px;
-    background-color: gray;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.categoria-aside img {
+    height: 190px;
+    width: 180px;
+    transition: transform .8s ease-in-out;
+}
+
+.categoria-aside img:hover {
+    transform: scale(1.08);
+    cursor: pointer;
 }
 
 .separator-blog {

@@ -1,48 +1,150 @@
 @model Post
+@using Microsoft.AspNetCore.Identity
+@using Mascotas.Areas.Identity.Data
+@inject UserManager<UserIdentity> UserManager
+@inject SignInManager<UserIdentity> SignInManager
 @{
     ViewData["Title"] = "COSTUMBLOG";
+    var id = "0";
+    var estado = 0;
+    if (SignInManager.IsSignedIn(User))
+    {
+        var user = await UserManager.FindByNameAsync(User.Identity.Name);
+        id = user.Id;
+        estado = 1;
+    }
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h3 class="text-center text-uppercase page-header title-bold">
-                @Html.DisplayFor(itemModel => Model.Titulo)
-            </h3>
-            <p class="text-center">
-                Publicado en: @Html.DisplayFor(itemModel => Model.FechaPublicacion) por CostumPet
-            </p>
-            <p class="text-center">
-                @{
-                    var calificacion = 0.0;
-                    if (Model.Calificaciones.Count > 1)
-                    {
-                        calificacion = Model.Calificaciones.Average(x => x.Valor);
-                    }
+<div class="row">
+    <div class="col-md-8">
+        <h3 class="text-center text-uppercase title-bold">
+            @Html.DisplayFor(itemModel => Model.Titulo)
+        </h3>
+        <hr>
+        <p class="text-center">
+            Publicado en: @Html.DisplayFor(itemModel => Model.FechaPublicacion) por CostumPet
+        </p>
+        <p class="text-center">
+            @{
+                var calificacion = 0.0;
+                if (Model.Calificaciones.Count > 0)
+                {
+                    calificacion = Model.Calificaciones.Average(x => x.Valor);
+                }
 
-                }
-                @if ( calificacion == 0.0)
+            }
+            @if ( calificacion == 0.0)
+            {
+                <i class="far fa-star"></i>
+            }
+            else if(calificacion != Math.Floor(calificacion)) {
+                for (var i=0; i < calificacion-1; i++)
                 {
-                    <i class="far fa-star"></i>
+                    <i class="fas fa-star"></i>
                 }
-                else if(calificacion != Math.Floor(calificacion)) {
-                    for (var i=0; i < calificacion-1; i++)
-                    {
-                        <i class="fas fa-star"></i>
-                    }
-                    <i class="fas fa-star-half-alt"></i>
-                }
-                else
+                <i class="fas fa-star-half-alt"></i>
+            }
+            else
+            {
+                for (var i=0; i < calificacion; i++)
                 {
-                    for (var i=0; i < calificacion; i++)
-                    {
-                        <i class="fas fa-star"></i>
-                    }
+                    <i class="fas fa-star"></i>
                 }
-            </p>
+            }
+        </p>
+        <div class="container-fluid"></div>
+        <p>@Html.DisplayFor(itemModel => Model.Subtitulo)</p>
+        <hr>
+        <div class="container-fluid">
+            <div class="section-post">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <p class="underline-text title-bold">Materiales</p>
+                        <br>
+                        <p>Tus Materiales</p>
+                        <p>@Html.DisplayFor(itemModel => Model.Materiales)</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="underline-text title-bold">Productos</p>
+                        <br>
+                        <p>CostumPlus</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere et
+                            turpis sit amet semper. Aliquam tincidunt diam eu bibendum efficitur.
+                        </p>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <iframe width="560" height="315"
+                                src="@Html.DisplayFor(itemModel => Model.UrlVideo)"
+                                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            @Html.Partial("_Aside")
+        <div class="line-dotted"></div>
+        <div class="container-fluid">
+            <form method="post" class="form-commets" onsubmit="return sendComment(this);">
+                <textarea name="comment" id="comment" placeholder="Escribe tu comentario aquí"
+class="form-control" rows="4"></textarea>
+                <button class="btn btn-primary float-right" type="submit" id="sendC">Publicar</button>
+            </form>
+            <div class="clearfix"></div>
+            <br>
+            @foreach (var item in Model.Comentarios)
+            {
+                <div class="comment">
+                    <div>
+                        <p>@Html.DisplayFor(modelItem => item.Mensaje)</p>
+                        @if (SignInManager.IsSignedIn(User) && item.UsuarioId == id)
+                        {
+                            <button class="btn-link float-right" onclick="deleteComment(@item.Id);">Eliminar</button>
+                        }
+                        <span class="clearfix"></span>
+                    </div>
+                </div>
+            }
         </div>
     </div>
+    <div class="col-md-4">
+        @Html.Partial("_Aside")
+    </div>
 </div>
+
+
+<script>
+    function sendComment(form) {
+        if (@estado === 1) {
+            var comment = {
+                "PostId": @Model.Id,
+                "Mensaje": form.comment.value,
+                "FechaPublicacion": Date.now(),
+                "UsuarioId": "@id"
+            }
+            $.ajax({
+                url: "/Costum/SaveComment",
+                dataType: "json",
+                type: "POST",
+                success: function(msg) {
+                    alert(msg);
+                },
+                data: comment
+            });
+        } else {
+            alert("Por favor inicie sesión para poder comentar este post");
+            return (false);
+        }
+    }
+
+    function deleteComment(Id) {
+        $.ajax({
+            url: "/Costum/RemoveComment/"+Id+"",
+            dataType: "json",
+            type: "GET",
+            success: function(msg) {
+                alert(msg);
+            }
+        });
+        location.reload();
+    }
+</script>

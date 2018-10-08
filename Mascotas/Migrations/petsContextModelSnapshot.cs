@@ -123,7 +123,7 @@ namespace Mascotas.Migrations
                     b.Property<string>("Mensaje")
                         .IsRequired();
 
-                    b.Property<long?>("PostId");
+                    b.Property<long>("PostId");
 
                     b.Property<string>("UsuarioId")
                         .IsRequired();
@@ -172,6 +172,8 @@ namespace Mascotas.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<long>("CategoriaId");
+
                     b.Property<string>("Contenido")
                         .IsRequired();
 
@@ -180,6 +182,9 @@ namespace Mascotas.Migrations
                     b.Property<DateTime>("FechaPublicacion");
 
                     b.Property<string>("Materiales")
+                        .IsRequired();
+
+                    b.Property<string>("Subtitulo")
                         .IsRequired();
 
                     b.Property<string>("Titulo")
@@ -192,6 +197,8 @@ namespace Mascotas.Migrations
                         .IsRequired();
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoriaId");
 
                     b.HasIndex("UsuarioId");
 
@@ -364,7 +371,7 @@ namespace Mascotas.Migrations
             modelBuilder.Entity("Mascotas.Models.Calificacion", b =>
                 {
                     b.HasOne("Mascotas.Models.Post")
-                        .WithMany("Calificacions")
+                        .WithMany("Calificaciones")
                         .HasForeignKey("PostId");
 
                     b.HasOne("Mascotas.Areas.Identity.Data.UserIdentity", "Usuario")
@@ -375,9 +382,10 @@ namespace Mascotas.Migrations
 
             modelBuilder.Entity("Mascotas.Models.Comentario", b =>
                 {
-                    b.HasOne("Mascotas.Models.Post")
+                    b.HasOne("Mascotas.Models.Post", "Post")
                         .WithMany("Comentarios")
-                        .HasForeignKey("PostId");
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Mascotas.Areas.Identity.Data.UserIdentity", "Usuario")
                         .WithMany()
@@ -394,6 +402,11 @@ namespace Mascotas.Migrations
 
             modelBuilder.Entity("Mascotas.Models.Post", b =>
                 {
+                    b.HasOne("Mascotas.Models.Categoria", "Categoria")
+                        .WithMany()
+                        .HasForeignKey("CategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Mascotas.Areas.Identity.Data.UserIdentity", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")

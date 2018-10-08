@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mascotas.Migrations
 {
-    public partial class initialDB : Migration
+    public partial class CreateDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -189,16 +189,24 @@ namespace Mascotas.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Titulo = table.Column<string>(nullable: false),
+                    Subtitulo = table.Column<string>(nullable: false),
                     Materiales = table.Column<string>(nullable: false),
                     Contenido = table.Column<string>(nullable: false),
                     Estado = table.Column<bool>(nullable: false),
                     FechaPublicacion = table.Column<DateTime>(nullable: false),
                     UrlVideo = table.Column<string>(nullable: false),
-                    UsuarioId = table.Column<string>(nullable: false)
+                    UsuarioId = table.Column<string>(nullable: false),
+                    CategoriaId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Posts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Posts_Categorias_CategoriaId",
+                        column: x => x.CategoriaId,
+                        principalTable: "Categorias",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Posts_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
@@ -274,7 +282,7 @@ namespace Mascotas.Migrations
                     Mensaje = table.Column<string>(nullable: false),
                     FechaPublicacion = table.Column<DateTime>(nullable: false),
                     UsuarioId = table.Column<string>(nullable: false),
-                    PostId = table.Column<long>(nullable: true)
+                    PostId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -284,7 +292,7 @@ namespace Mascotas.Migrations
                         column: x => x.PostId,
                         principalTable: "Posts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Comentarios_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
@@ -400,6 +408,11 @@ namespace Mascotas.Migrations
                 name: "IX_ImagenPosts_PostId",
                 table: "ImagenPosts",
                 column: "PostId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_CategoriaId",
+                table: "Posts",
+                column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_UsuarioId",

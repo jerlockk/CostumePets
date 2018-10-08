@@ -6,22 +6,22 @@
     <hr class="separator-blog">
     <div class="col-md-6">
         <picture class="categoria-aside">
-            <img src="" alt="categoria1">
+            <img src="~/images/categorias/CatComics.png" alt="comics" title="comics">
         </picture>
     </div>
     <div class="col-md-6">
         <picture class="categoria-aside">
-            <img src="" alt="categoria2">
+            <img src="~/images/categorias/CatAnime.png" alt="anime" title="anime">
         </picture>
     </div>
     <div class="col-md-6">
         <picture class="categoria-aside">
-            <img src="" alt="categoria3">
+            <img src="~/images/categorias/CatPeliculas.png" alt="peliculas" title="peliculas">
         </picture>
     </div>
     <div class="col-md-6">
         <picture class="categoria-aside">
-            <img src="" alt="categoria4">
+            <img src="~/images/categorias/CatAccesorios.png" alt="accesorios" title="accesorios">
         </picture>
     </div>
 </div>
@@ -57,7 +57,7 @@
             <p class="comment-cal">
                 @{
                     var calificacion = 0.0;
-                    if (item.Calificaciones.Count > 1)
+                    if (item.Calificaciones.Count > 0)
                     {
                         calificacion = item.Calificaciones.Average(x => x.Valor);
                     }
