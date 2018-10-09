@@ -37,4 +37,25 @@ $(document).ready(function(){
     li.innerHTML = '<p class="text-uppercase title-bold">'+title+'</p>'+' <small>'+price+'</small>';
     $('#list-prods').append(li);
   });
+
+  function truncateText(content, maxLength) {
+    if (content.length > maxLength) {
+      content = content.substr(0,maxLength) + '...';
+    }
+    return content;
+  }
+//You can then call the function with something like what i have below.
+  var selector = document.querySelectorAll('.p-truncate');
+  for (let i = 0; i <= selector.length-1; i++) {
+    selector[i].innerHTML = truncateText(selector[i].innerHTML, 200);
+  }
+
+  var selector2 = document.querySelectorAll('.p-prod-truncate');
+  for (let i = 0; i <= selector2.length-1; i++) {
+    selector2[i].innerHTML = truncateText(selector2[i].innerHTML, 50);
+  }
+
+  $('[data-toggle="tooltip"]').tooltip();
 });
+
+

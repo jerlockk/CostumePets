@@ -39,6 +39,16 @@ namespace Mascotas.Controllers
         {
             var catProducts = _context.Productos.Include(x => x.Imagen)
                 .Where(x => x.TipoMascota == "gato").ToListAsync();
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+                Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
+            var productos = _context.Productos.
+                Include(x => x.Imagen).ToListAsync();
+            var share = new ProductoPostMV
+            {
+                Posts = await posts,
+                Productos = await productos
+            };
+            ViewData["Aside"] = share;
             return View(await catProducts);
         }
 
@@ -46,6 +56,16 @@ namespace Mascotas.Controllers
         {
             var dogProducts = _context.Productos.Include(x => x.Imagen)
                 .Where(x => x.TipoMascota == "perro").ToListAsync();
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+                Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
+            var productos = _context.Productos.
+                Include(x => x.Imagen).ToListAsync();
+            var share = new ProductoPostMV
+            {
+                Posts = await posts,
+                Productos = await productos
+            };
+            ViewData["Aside"] = share;
             return View(await dogProducts);
         }
 
@@ -64,20 +84,26 @@ namespace Mascotas.Controllers
             return View(result);
         }
 
-        public async Task<ActionResult<Post>> Post(long id)
+        public async Task<ActionResult<PostProductoMV>> Post(long id)
         {
             var post = _context.Posts.FindAsync(id);
+            var productosxpost = _context.Productoxposts.Where(x => x.Post.Id.Equals(id)).ToListAsync();
             var posts = _context.Posts.Include(x => x.Calificaciones).
                 Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
             var productos = _context.Productos.
                 Include(x => x.Imagen).ToListAsync();
-            var result = new ProductoPostMV
+            var share = new ProductoPostMV
             {
                 Posts = await posts,
                 Productos = await productos
             };
-            ViewData["Aside"] = result;
-            return View(await post);
+            var result = new PostProductoMV
+            {
+                Post = await post,
+                Productoxposts = await productosxpost
+            };
+            ViewData["Aside"] = share;
+            return View(result);
         }
 
         [HttpPost]
@@ -86,6 +112,14 @@ namespace Mascotas.Controllers
             _context.Comentarios.Add(c);
             _context.SaveChanges();
             return Json("Comentario guardado con exito");
+        }
+
+        [HttpPost]
+        public JsonResult SaveRate(Calificacion c)
+        {
+            _context.Calificaciones.Add(c);
+            _context.SaveChanges();
+            return Json("Su calificación ha sido guardada con exito");
         }
 
         public JsonResult RemoveComment(long id)

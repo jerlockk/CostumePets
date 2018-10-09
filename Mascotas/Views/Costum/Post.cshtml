@@ -1,4 +1,4 @@
-@model Post
+@model PostProductoMV
 @using Microsoft.AspNetCore.Identity
 @using Mascotas.Areas.Identity.Data
 @inject UserManager<UserIdentity> UserManager
@@ -7,29 +7,41 @@
     ViewData["Title"] = "COSTUMBLOG";
     var id = "0";
     var estado = 0;
+    var calV = 6;
     if (SignInManager.IsSignedIn(User))
     {
         var user = await UserManager.FindByNameAsync(User.Identity.Name);
         id = user.Id;
         estado = 1;
+        try
+        {
+            if (Model.Post.Calificaciones.Count(x => x.UsuarioId.Contains(id)) == 1)
+            {
+                calV = Model.Post.Calificaciones.First(x => x.UsuarioId.Equals(id)).Valor;
+            }
+        }
+        catch(NullReferenceException)
+        {
+
+        }
     }
 }
 
 <div class="row">
     <div class="col-md-8">
         <h3 class="text-center text-uppercase title-bold">
-            @Html.DisplayFor(itemModel => Model.Titulo)
+            @Html.DisplayFor(itemModel => Model.Post.Titulo)
         </h3>
         <hr>
         <p class="text-center">
-            Publicado en: @Html.DisplayFor(itemModel => Model.FechaPublicacion) por CostumPet
+            Publicado en: @Html.DisplayFor(itemModel => Model.Post.FechaPublicacion) por CostumPet
         </p>
         <p class="text-center">
             @{
                 var calificacion = 0.0;
-                if (Model.Calificaciones.Count > 0)
+                if (Model.Post.Calificaciones.Count > 0)
                 {
-                    calificacion = Model.Calificaciones.Average(x => x.Valor);
+                    calificacion = Model.Post.Calificaciones.Average(x => x.Valor);
                 }
 
             }
@@ -53,7 +65,7 @@
             }
         </p>
         <div class="container-fluid"></div>
-        <span>@Html.DisplayFor(itemModel => Model.Subtitulo)</span>
+        <span>@Html.DisplayFor(itemModel => Model.Post.Subtitulo)</span>
         <select id="star-rating">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -69,7 +81,7 @@
                         <p class="underline-text title-bold">Materiales</p>
                         <br>
                         <p>Tus Materiales</p>
-                        <p>@Html.DisplayFor(itemModel => Model.Materiales)</p>
+                        <p>@Html.DisplayFor(itemModel => Model.Post.Materiales)</p>
                     </div>
                     <div class="col-md-6">
                         <p class="underline-text title-bold">Productos</p>
@@ -78,11 +90,33 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere et
                             turpis sit amet semper. Aliquam tincidunt diam eu bibendum efficitur.
                         </p>
+                        <hr>
+                        <div class="row">
+                            @foreach (var item in Model.Productoxposts)
+                            {
+                                <div class="col-md-6 text-center">
+                                    <img class="img-pp img-effect" src="~/images/Products/@Html.DisplayFor(itemModel => item.Producto.Imagen.ImageUrl)" alt="producto"/>
+                                    <p class="p-prod-truncate">@Html.DisplayFor(itemModel => item.Producto.Descripcion)</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="section-post">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <p class="underline-text title-bold">Tutorial</p>
+                        <br>
+                        <p>@Html.DisplayFor(itemModel => Model.Post.Contenido)</p>
                     </div>
                     <div class="col-md-12 text-center">
                         <br>
                         <iframe width="560" height="315"
-                                src="@Html.DisplayFor(itemModel => Model.UrlVideo)"
+                                src="@Html.DisplayFor(itemModel => Model.Post.UrlVideo)"
                                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
                         </iframe>
                     </div>
@@ -91,14 +125,14 @@
         </div>
         <div class="line-dotted"></div>
         <div class="container-fluid">
-            <form method="post" class="form-commets" onsubmit="return sendComment(this);">
+            <div class="form-commets">
                 <textarea name="comment" id="comment" placeholder="Escribe tu comentario aquí"
-class="form-control" rows="4"></textarea>
-                <button class="btn btn-primary float-right" type="submit" id="sendC">Publicar</button>
-            </form>
+                class="form-control" rows="4"></textarea>
+                <button class="btn btn-primary float-right" type="button" id="sendC" onclick="sendComment();">Publicar</button>
+            </div>
             <div class="clearfix"></div>
             <br>
-            @foreach (var item in Model.Comentarios)
+            @foreach (var item in Model.Post.Comentarios)
             {
                 <div class="comment">
                     <div>
@@ -116,10 +150,10 @@ class="form-control" rows="4"></textarea>
     <div class="col-md-4">
         @Html.Partial("_Aside")
     </div>
-    <div class="modal fade modal-success" tabindex="-1" role="dialog" aria-labelledby="myModalC" id="myModalC">
+    <div class="modal fade modal-noaccess" tabindex="-1" role="dialog" aria-labelledby="myModalC" id="myModalC">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content text-center">
-                <p>Por favor inicie sesión para poder comentar este post</p>
+                <p>Por favor inicie sesión para poder comentar o calificar este post.</p>
             </div>
         </div>
     </div>
@@ -127,11 +161,12 @@ class="form-control" rows="4"></textarea>
 
 
 <script>
-    function sendComment(form) {
+    var valor = 0;
+    function sendComment() {
         if (@estado === 1) {
             var comment = {
-                "PostId": @Model.Id,
-                "Mensaje": form.comment.value,
+                "PostId": @Model.Post.Id,
+                "Mensaje": $('#comment').val(),
                 "FechaPublicacion": Date.now(),
                 "UsuarioId": "@id"
             }
@@ -141,6 +176,7 @@ class="form-control" rows="4"></textarea>
                 type: "POST",
                 success: function(msg) {
                     alert(msg);
+                    location.reload();
                 },
                 data: comment
             });
@@ -150,25 +186,61 @@ class="form-control" rows="4"></textarea>
         }
     }
 
-    function deleteComment(Id) {
-        $.ajax({
-            url: "/Costum/RemoveComment/"+Id+"",
-            dataType: "json",
-            type: "GET",
-            success: function(msg) {
-                alert(msg);
-            }
-        });
-        location.reload();
+    function deleteComment(id) {
+        var r = confirm('¿Está seguro que desea borrar este comentario?');
+        if (r) {
+            $.ajax({
+                url: "/Costum/RemoveComment/"+id+"",
+                dataType: "json",
+                type: "GET",
+                success: function(msg) {
+                    alert(msg);
+                    location.reload();
+                }
+            });
+        }
     }
 
-    $('#star-rating').barrating({
-        theme: 'css-stars',
-        onSelect: function(value, text, event) {
-            if (typeof(event) !== 'undefined') {
-                // rating was selected by a user
-                console.log(value);
+    function sendRate(valor) {
+        if (@estado === 1) {
+            var r = confirm('Tenga en cuenta que una vez enviada la calificación esta no podrá ser modificada. ¿Desea continuar?');
+            var data = {
+                "PostId": @Model.Post.Id,
+                "UsuarioId": "@id",
+                "Valor": valor
+            };
+            if (r) {
+                $.ajax({
+                    url: "/Costum/SaveRate/",
+                    dataType: "json",
+                    type: "POST",
+                    success: function(msg) {
+                        alert(msg);
+                        location.reload();
+                    },
+                    data: data
+                });
             }
+        } else {
+            $('#myModalC').modal('show');
         }
-    });
+    }
+
+    if (@calV === 6) {
+        $('#star-rating').barrating({
+            theme: 'css-stars',
+            onSelect: function(value, text, event) {
+                if (typeof(event) !== 'undefined') {
+                    // rating was selected by a user
+                    sendRate(value);
+                }
+            }
+        });
+    } else {
+        $('#star-rating').barrating('show', {
+            theme: 'css-stars'
+        });
+        $('#star-rating').barrating('set', @calV);
+        $('#star-rating').barrating('readonly', true);
+    }
 </script>

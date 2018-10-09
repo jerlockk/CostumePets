@@ -9,7 +9,8 @@
         {
             <div class="media">
                 <div class="media-left">
-                    <img class="media-object"
+                    <br>
+                    <img class="media-object img-posts"
                          src="~/images/Products/@Html.DisplayFor(modelItem => item.Imagenes[0].ImageUrl)"
                          alt="image main">
                 </div>
@@ -47,7 +48,7 @@
                     </p>
                     <h4 class="media-heading">@Html.DisplayFor(modelItem => item.Titulo)</h4>
                     <small>@Html.DisplayFor(modelItem => item.FechaPublicacion)</small>
-                    <p>@Html.DisplayFor(modelItem => item.Contenido)</p>
+                    <p class="p-truncate">@Html.DisplayFor(modelItem => item.Contenido)</p>
                     <a class="btn btn-primary float-right"
                        asp-controller="Costum" asp-action="Post" asp-route-id="@id">
                         Ver más

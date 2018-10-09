@@ -28,9 +28,9 @@
 <div class="row">
     <p class="title-bold text-center">NUEVOS PRODUCTOS</p>
     <hr class="separator-blog">
-    @foreach (var item in prods.Productos.Take(4))
+    @foreach (var item in prods.Productos.Take(3))
     {
-        <div class="col-md-12">
+        <div class="col-md-12 prod-aside">
             <div class="media">
                 <div class="media-left">
                     <img class="media-object"
@@ -83,7 +83,7 @@
                 }
             </p>
             <p class="title-bold">@Html.DisplayFor(modelItem => item.Titulo)</p>
-            <p class="text-justify">@Html.DisplayFor(modelItem => item.Contenido)</p>
+            <p class="text-justify p-truncate">@Html.DisplayFor(modelItem => item.Contenido)</p>
         </div>
     }
 </div>

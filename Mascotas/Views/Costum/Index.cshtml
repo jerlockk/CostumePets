@@ -11,10 +11,10 @@
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="~/images/slides/Slide1.jpg" alt="ASP.NET" class="img-slide-item" />
+                    <img src="~/images/slides/Slide1.jpg" alt="bienvenido" class="img-slide-item" title="bienvenido"/>
                 </div>
                 <div class="item">
-                    <img src="~/images/slides/Slide2.jpg" alt="Visual Studio" class="img-slide-item" />
+                    <img src="~/images/slides/Slide2.jpg" alt="supercan" class="img-slide-item" title="supercan"/>
                     <div class="carousel-caption" role="option">
                         <p>
                             <a class="btn btn-default" asp-controller="Costum" asp-action="Dogs">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="~/images/slides/Slide3.jpg" alt="Microsoft Azure" class="img-slide-item" />
+                    <img src="~/images/slides/Slide3.jpg" alt="supercat" class="img-slide-item" title="supercat"/>
                     <div class="carousel-caption" role="option">
                         <p>
                             <a class="btn btn-default" asp-controller="Costum" asp-action="Cats">
@@ -47,10 +47,10 @@
     <div class="col-md-5">
         <div class="row">
             <div class="col-md-12 img-right-slide">
-                <img src="~/images/otras/DerechaArriba.jpg" alt="gato">
+                <img src="~/images/otras/DerechaArriba.jpg" alt="gato" title="gato">
             </div>
             <div class="col-md-12 img-right-slide">
-                <img src="~/images/otras/DerechaAbajo.jpg" alt="perro">
+                <img src="~/images/otras/DerechaAbajo.jpg" alt="perro" title="perro">
             </div>
         </div>
     </div>
@@ -97,7 +97,7 @@
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <i class="fas fa-cart-plus btn-to-cart"
-                        data-toggle="modal" data-target=".modal-success-cart"></i>
+                        data-toggle="modal" data-target="#modal-success-cart"></i>
                     }
                     <img src="~/images/Products/@Html.DisplayFor(modelItem => item.Imagen.ImageUrl)"
                      alt="producto" class="image-prod">
@@ -129,8 +129,8 @@
     </div>
 </div>
 
-<div class="modal fade modal-success" tabindex="-1" role="dialog" aria-labelledby="SuccessCart">
-    <div class="modal-dialog modal-sm" role="document">
+<div class="modal fade modal-noaccess" tabindex="-1" role="dialog" aria-labelledby="SuccessCart" id="modal-success-cart">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content text-center">
             <p class="title-bold text-uppercase">El producto ha sido añadido al carrito</p>
         </div>

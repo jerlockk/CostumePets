@@ -254,7 +254,7 @@ namespace Mascotas.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Valor = table.Column<int>(nullable: false),
                     UsuarioId = table.Column<string>(nullable: false),
-                    PostId = table.Column<long>(nullable: true)
+                    PostId = table.Column<long>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -264,7 +264,7 @@ namespace Mascotas.Migrations
                         column: x => x.PostId,
                         principalTable: "Posts",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Calificaciones_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,

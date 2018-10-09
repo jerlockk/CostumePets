@@ -3,7 +3,7 @@
     ViewData["Title"] = "Para tu SuperCan";
 }
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
         <h2 class="text-center page-header">@ViewData["Title"]</h2>
         <br>
         <div class="row">
@@ -12,13 +12,13 @@
                 <div class="col-md-3 text-center card-col">
                     <div class="card-prod">
                         <img src="~/images/Products/@Html.DisplayFor(modelItem =>
-                        item.Imagen.ImageUrl)" alt="producto" class="images-catalog">
+                        item.Imagen.ImageUrl)" alt="producto" class="images-catalog img-effect">
                         <div class="card-content">
                             <p class="text-italic title-bold" style="margin: 0">
                                 @Html.DisplayFor(modelItem => item.NombreProducto)
                             </p>
                             <hr style="margin: 0">
-                            <p class="text-justify">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                            <p class="text-justify p-prod-truncate">@Html.DisplayFor(modelItem => item.Descripcion)</p>
                             <p class="price-prod">@Html.DisplayFor(modelItem => item.Precio)</p>
                         </div>
                     </div>
@@ -26,6 +26,8 @@
             }
         </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-4">
+        @Html.Partial("_Aside");
+    </div>
 </div>
 

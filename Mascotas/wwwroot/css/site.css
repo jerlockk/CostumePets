@@ -81,6 +81,16 @@ div.item img.img-slide-item {
 .text-italic {
     font-style: italic;
 }
+.img-effect {
+    transition: all .8s ease;
+}
+
+
+.img-effect:hover {
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
 
 /*Separator sections*/
 .section-dv {
@@ -141,7 +151,7 @@ ul li.li-item {
 .menu-prom {
     background-color: #eeeeee;
     height: 35px;
-    margin-bottom: 1em;
+    margin: 0 0 1em;
 }
 
 .menu-prom p {
@@ -210,7 +220,7 @@ form.search div {
 
 .image-prod {
     width: 240px;
-    height: 240px;
+    height: 260px;
 }
 .dropdown-cart {
     padding: 5px 0;
@@ -225,12 +235,12 @@ form.search div {
 .btn-to-cart {
     position: absolute;
     top: 25px;
-    right: 25px;
+    right: 50px;
     font-size: 1.5em;
     color: #cecece;
 }
 
-.btn-to-cart:active {
+.btn-to-cart:hover, .btn-to-cart:active{
     color: gray;
 }
 

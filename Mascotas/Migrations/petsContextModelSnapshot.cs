@@ -84,7 +84,7 @@ namespace Mascotas.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<long?>("PostId");
+                    b.Property<long>("PostId");
 
                     b.Property<string>("UsuarioId")
                         .IsRequired();
@@ -370,9 +370,10 @@ namespace Mascotas.Migrations
 
             modelBuilder.Entity("Mascotas.Models.Calificacion", b =>
                 {
-                    b.HasOne("Mascotas.Models.Post")
+                    b.HasOne("Mascotas.Models.Post", "Post")
                         .WithMany("Calificaciones")
-                        .HasForeignKey("PostId");
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Mascotas.Areas.Identity.Data.UserIdentity", "Usuario")
                         .WithMany()
