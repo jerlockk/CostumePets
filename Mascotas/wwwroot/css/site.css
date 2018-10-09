@@ -1,20 +1,42 @@
-﻿/* Wrapping element */
+﻿@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css?family=BioRhyme');
+
+/* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
+* {
+    font-family: 'Questrial', sans-serif;
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-.prueba {
-    height: 200px;
-    background-color: gray;
-    margin-bottom: 1em;
 }
 
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
+}
+
+.carousel-caption {
+    bottom: -5%;
+}
+
+/*SLIDE BOOTSTRAP*/
+
+div.item img.img-slide-item {
+    width: 130%;
+    height: 560px;
+}
+
+.img-right-slide {
+    margin-bottom: 1em;
+    text-align: right;
+}
+
+.img-right-slide img{
+    height: 280px;
+    width: 90%;
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
@@ -32,6 +54,11 @@
 .color-white {
     color: white !important;
     font-weight: bold;
+}
+
+.font-bior {
+    font-family: 'BioRhyme', serif;
+    color: #555555;
 }
 
 .inner-padding {
@@ -88,7 +115,7 @@
 /* HEADER*/
 .logo {
     height: 110px;
-    width: 110px;
+    width: 120px;
     margin-right: 1em;
     margin-top: -.5em;
 }
@@ -99,24 +126,42 @@
 
 ul li.li-item {
     margin-right: 2em;
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 .top-header {
-    background-color: #9acfea;
+    background-color: #58c0ed;
+    max-height: 40px;
 }
 
 .search-buttons {
     margin-top: 15px;
 }
 
+.menu-prom {
+    background-color: #eeeeee;
+    height: 35px;
+    margin-bottom: 1em;
+}
+
+.menu-prom p {
+    font-size: 1.2em;
+    line-height: 35px;
+    margin: 0;
+    color: #8e8e8e;
+}
+
 div.navlists {
-    background-color: #ececec;
+    background-color: #939393;
+}
+
+div.navlists ul.nav li.li-item a, div.navlists span.navbar-text {
+    color: white;
 }
 
 form.search {
     width: 50% !important;
-    margin-left: -90px;
+    margin-left: 90px;
 }
 
 form.search input.form-control {
@@ -174,7 +219,7 @@ form.search div {
     overflow: auto;
 }
 
-.modal-success-cart p {
+.modal-successmodal-success p {
     padding: 1em 2em;
 }
 .btn-to-cart {

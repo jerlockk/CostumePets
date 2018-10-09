@@ -80,7 +80,7 @@ using Mascotas.Models;
             WriteLiteral("                <div class=\"col-md-3 text-center card-col\">\n                    <div class=\"card-prod\">\n                        ");
             EndContext();
             BeginContext(413, 143, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d18f1b864ff04f78bb4dae5a892b2c4b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "832cb00ddbd642f0a12252ab0250b1ce", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

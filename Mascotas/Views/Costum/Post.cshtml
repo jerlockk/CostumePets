@@ -53,7 +53,14 @@
             }
         </p>
         <div class="container-fluid"></div>
-        <p>@Html.DisplayFor(itemModel => Model.Subtitulo)</p>
+        <span>@Html.DisplayFor(itemModel => Model.Subtitulo)</span>
+        <select id="star-rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
         <hr>
         <div class="container-fluid">
             <div class="section-post">
@@ -109,6 +116,13 @@ class="form-control" rows="4"></textarea>
     <div class="col-md-4">
         @Html.Partial("_Aside")
     </div>
+    <div class="modal fade modal-success" tabindex="-1" role="dialog" aria-labelledby="myModalC" id="myModalC">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content text-center">
+                <p>Por favor inicie sesión para poder comentar este post</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -131,7 +145,7 @@ class="form-control" rows="4"></textarea>
                 data: comment
             });
         } else {
-            alert("Por favor inicie sesión para poder comentar este post");
+            $('#myModalC').modal('show');
             return (false);
         }
     }
@@ -147,4 +161,14 @@ class="form-control" rows="4"></textarea>
         });
         location.reload();
     }
+
+    $('#star-rating').barrating({
+        theme: 'css-stars',
+        onSelect: function(value, text, event) {
+            if (typeof(event) !== 'undefined') {
+                // rating was selected by a user
+                console.log(value);
+            }
+        }
+    });
 </script>
