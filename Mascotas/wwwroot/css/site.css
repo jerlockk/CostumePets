@@ -218,6 +218,16 @@ form.search div {
     width: 25%;
 }
 
+.slideshow-items-post {
+    white-space: nowrap;
+    transition: transform 1s ease-in-out;
+}
+
+.slideshow-item-post {
+    display: inline-block;
+    width: 25%;
+}
+
 .image-prod {
     width: 240px;
     height: 260px;
@@ -275,6 +285,19 @@ form.search div {
 .btn-ctrl:hover{
      opacity: 1;
  }
+
+.image-post-slide{
+    height: 250px;
+    width: 80%;
+    text-align: center;
+}
+
+div.slideshow-item-post span.p-prod-truncate {
+    max-width: 80%;
+    white-space: normal;
+    margin: auto;
+    display: block;
+}
 
 /*CATEGORIAS*/
 .categoria-slide img {

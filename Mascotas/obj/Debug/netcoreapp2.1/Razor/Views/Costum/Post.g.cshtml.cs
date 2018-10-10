@@ -191,7 +191,7 @@ using Mascotas.Areas.Identity.Data;
             WriteLiteral("</span>\n        <select id=\"star-rating\">\n            ");
             EndContext();
             BeginContext(2108, 28, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a3da3d780e554d77b4a6e075e8260036", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9673d6f0863049e5a43d98f313865446", async() => {
                 BeginContext(2126, 1, true);
                 WriteLiteral("1");
                 EndContext();
@@ -213,7 +213,7 @@ using Mascotas.Areas.Identity.Data;
             WriteLiteral("\n            ");
             EndContext();
             BeginContext(2149, 28, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3574e37a73240008f5b48573d31002c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "498cdd3be4ac4d6c8e5b6080bec59534", async() => {
                 BeginContext(2167, 1, true);
                 WriteLiteral("2");
                 EndContext();
@@ -235,7 +235,7 @@ using Mascotas.Areas.Identity.Data;
             WriteLiteral("\n            ");
             EndContext();
             BeginContext(2190, 28, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3b3b451ca266442888fd4d25b3fc3381", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aba01a7db45a449d9f3c7e33fb2c5fc2", async() => {
                 BeginContext(2208, 1, true);
                 WriteLiteral("3");
                 EndContext();
@@ -257,7 +257,7 @@ using Mascotas.Areas.Identity.Data;
             WriteLiteral("\n            ");
             EndContext();
             BeginContext(2231, 28, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11f8541f26b649ee9ce9f873dd95e4aa", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4807379a4eaa4aa48e3f5935679a7d67", async() => {
                 BeginContext(2249, 1, true);
                 WriteLiteral("4");
                 EndContext();
@@ -279,7 +279,7 @@ using Mascotas.Areas.Identity.Data;
             WriteLiteral("\n            ");
             EndContext();
             BeginContext(2272, 28, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "96d97b7be6264263a2696201f3a47576", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "35eed9fc08ef4ce199377edd4dbcdc92", async() => {
                 BeginContext(2290, 1, true);
                 WriteLiteral("5");
                 EndContext();
@@ -341,7 +341,7 @@ using Mascotas.Areas.Identity.Data;
             WriteLiteral("                                <div class=\"col-md-6 text-center\">\n                                    ");
             EndContext();
             BeginContext(3445, 132, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "83383d98419a448a874e16631f2d3f61", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "12332a0104a24eecbe24dae4e7769722", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

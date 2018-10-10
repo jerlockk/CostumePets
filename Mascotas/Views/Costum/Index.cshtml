@@ -121,12 +121,21 @@
         <i class="fas fa-angle-up arrow-top" onclick="goToUp();"></i>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
-        <div class="col-md-4"></div>
+<div class="container slideshow">
+    <button onclick="prevP()" class="btn-ctrl">&laquo;</button>
+    <div class="scroller">
+        <div class="slideshow-items-post">
+            @foreach (var item in Model.Posts)
+            {
+                <div class="slideshow-item-post text-center card-efect-hover">
+                    <img src="~/images/Products/@Html.DisplayFor(itemModel => item.Imagenes[0].ImageUrl)" alt="imagen principal" class="image-post-slide">
+                    <p class="title-bold">@Html.DisplayFor(itemModel => item.Titulo)</p>
+                    <span class="p-prod-truncate">@Html.DisplayFor(itemModel => item.Contenido)</span>
+                </div>
+            }
+        </div>
     </div>
+    <button onclick="nextP()" class="btn-ctrl">&raquo;</button>
 </div>
 
 <div class="modal fade modal-noaccess" tabindex="-1" role="dialog" aria-labelledby="SuccessCart" id="modal-success-cart">

@@ -26,7 +26,7 @@ namespace Mascotas.Controllers
         {
             var productos = _context.Productos.Include(x => x.Imagen)
                 .Include(x => x.Categoria).ToListAsync();
-            var posts =  _context.Posts.ToListAsync();
+            var posts =  _context.Posts.Include(x => x.Imagenes).ToListAsync();
             var prodPostMv= new ProductoPostMV
             {
                 Productos = await productos,

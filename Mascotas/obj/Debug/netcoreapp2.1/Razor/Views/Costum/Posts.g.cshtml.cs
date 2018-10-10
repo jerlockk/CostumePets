@@ -84,7 +84,7 @@ using Mascotas.Models;
             WriteLiteral("            <div class=\"media\">\n                <div class=\"media-left\">\n                    <br>\n                    ");
             EndContext();
             BeginContext(359, 184, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ef01bc20cd7d46268b81ff84b7fdb4ee", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "8476b73b3d25428182412d49b74f7778", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -216,7 +216,7 @@ AddHtmlAttributeValue("", 443, Html.DisplayFor(modelItem => item.Imagenes[0].Ima
             WriteLiteral("</p>\n                    ");
             EndContext();
             BeginContext(2251, 180, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "497667fd07de46a9a7597e11b06dd9a4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2c6e84eb7cac47b4b871b18eb87331a0", async() => {
                 BeginContext(2374, 53, true);
                 WriteLiteral("\n                        Ver más\n                    ");
                 EndContext();

@@ -1,4 +1,4 @@
-﻿// SLIDESHOW
+﻿// SLIDESHOW PRODUCTS
 
 var items = $('.slideshow-items');
 var itemCount = $('.slideshow-item').length / 4;
@@ -19,6 +19,28 @@ function next() {
 }
 
 window.addEventListener('resize', setTransform);
+
+// SLIDESHOW POSTS
+
+var itemsP = $('.slideshow-items-post');
+var itemCountP = $('.slideshow-item-post').length / 4;
+var posP = 0;
+
+function setTransformPost() {
+  itemsP[0].style.transform = 'translate3d(' + (-posP * itemsP[0].offsetWidth) + 'px,0,0)';
+}
+
+function prevP() {
+  posP = Math.max(posP - 1, 0);
+  setTransformPost();
+}
+
+function nextP() {
+  posP = Math.min(posP + 1, itemCountP - 1);
+  setTransformPost();
+}
+
+window.addEventListener('resize', setTransformPost);
 
 // SCROLL TO TOP
 

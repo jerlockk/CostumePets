@@ -194,7 +194,12 @@
     <p>Bogotá: Calle 150 #10-35 - C.C Las Mascotas | Cali: C.C Mascoticas Center L-209</p>
     <p>&copy; 2018 - <strong>CostumPets</strong> Todos los derechos reservados.</p>
 </footer>
-
+<environment include="Development">
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
+<environment exclude="Development">
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</environment>
 @RenderSection("Scripts", required: false)
 </body>
 </html>
