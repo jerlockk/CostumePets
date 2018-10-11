@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Mapa del sitio";
+}
+
+<div class="row">
+    <div class="col-md-8 inner-padding-minium">
+        <h2 class="text-center text-uppercase page-header">@ViewData["Title"]</h2>
+        <p>
+            Esta sección le ayudará a localizar los distintos contenidos en forma de listado para facilitar la ubicación de la     información dentro de nuestro sitio Web
+        </p>
+        <br>
+        <div class="row inner-padding-minium text-center">
+            <div class="col-md-6 list-map">
+                <p class="title-bold">GENERAL</p>
+                <ul>
+                    <li><a asp-controller="Costum" asp-action="Index">Inicio</a></li>
+                    <li><a asp-controller="Costum" asp-action="MapSite">Mapa de sitio</a></li>
+                    <li><a asp-controller="Costum" asp-action="Pqrs">Preguntas frecuentes</a></li>
+                    <li><a asp-controller="Costum" asp-action="Contact">Contáctanos</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 list-map">
+                <p class="title-bold">COSTUMPET</p>
+                <ul>
+                    <li><a asp-controller="Costum" asp-action="About" >Nosotros</a></li>
+                    <li><a asp-controller="Costum" asp-action="About" >Misión</a></li>
+                    <li><a asp-controller="Costum" asp-action="About" >Visión</a></li>
+                    <li><a asp-controller="Costum" asp-action="About" >Video</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 list-map">
+                <p class="title-bold">PRODUCTOS</p>
+                <ul>
+                    <li><a asp-controller="Costum" asp-action="Dogs">Para tu supercan</a></li>
+                    <li><a asp-controller="Costum" asp-action="Cats">Para tu supercat</a></li>
+                    <li><a asp-controller="Costum" asp-action="Posts">CostumBlog</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 list-map">
+                <p class="title-bold">SÍGUENOS</p>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <partial name="_Aside"/>
+    </div>
+</div>

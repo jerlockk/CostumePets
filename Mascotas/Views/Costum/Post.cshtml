@@ -65,7 +65,7 @@
         </p>
         <div class="container-fluid"></div>
         <span>@Html.DisplayFor(itemModel => Model.Post.Subtitulo)</span>
-        <select id="star-rating">
+        <select id="star-rating" title="Usted ya ha calificado este post anteriormente">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -86,15 +86,16 @@
                         <p class="underline-text title-bold">Productos</p>
                         <br>
                         <p>CostumPlus</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere et
-                            turpis sit amet semper. Aliquam tincidunt diam eu bibendum efficitur.
+                        <p>
+                            Podrás complementar tu cosplay con este CostumPlus, uno de nuestros accesorios
+                            destinado a este cosplay en específico.
                         </p>
                         <hr>
                         <div class="row">
                             @foreach (var item in Model.Productoxposts)
                             {
                                 <div class="col-md-12 text-center">
-                                    <img class="img-pp img-effect" src="~/images/Posts/@Html.DisplayFor(itemModel => item.Producto.Imagen.ImageUrl)" alt="producto"/>
+                                    <img class="img-pp img-effect" src="~/images/Products/@Html.DisplayFor(itemModel => item.Producto.Imagen.ImageUrl)"                                             alt="producto"/>
                                     <p class="p-prod-truncate">@Html.DisplayFor(itemModel => item.Producto.Descripcion)</p>
                                 </div>
                             }
@@ -241,5 +242,9 @@
         });
         $('#star-rating').barrating('set', @calV);
         $('#star-rating').barrating('readonly', true);
+        $('.br-widget').on("click",
+            function() {
+                alert("Usted ya ha calificado este post anteriormente");
+            });
     }
 </script>

@@ -145,15 +145,53 @@ namespace Mascotas.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
-            ViewData["Message"] = "Your contact page.";
-
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+                Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
+            var productos = _context.Productos.
+                Include(x => x.Imagen).ToListAsync();
+            var share = new ProductoPostMV
+            {
+                Posts = await posts,
+                Productos = await productos
+            };
+            ViewData["Aside"] = share;
             return View();
         }
 
         public IActionResult Privacy()
         {
+            return View();
+        }
+
+        public async Task<IActionResult> MapSite()
+        {
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+                Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
+            var productos = _context.Productos.
+                Include(x => x.Imagen).ToListAsync();
+            var share = new ProductoPostMV
+            {
+                Posts = await posts,
+                Productos = await productos
+            };
+            ViewData["Aside"] = share;
+            return View();
+        }
+
+        public async Task<IActionResult> Pqrs()
+        {
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+                Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
+            var productos = _context.Productos.
+                Include(x => x.Imagen).ToListAsync();
+            var share = new ProductoPostMV
+            {
+                Posts = await posts,
+                Productos = await productos
+            };
+            ViewData["Aside"] = share;
             return View();
         }
 

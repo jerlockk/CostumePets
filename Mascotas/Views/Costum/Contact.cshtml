@@ -1,13 +1,61 @@
 ﻿@{
     ViewData["Title"] = "Contácto";
 }
-<div class="row inner-padding-minium">
-    <h2 class="text-center page-header text-uppercase">@ViewData["Title"]</h2>
-    <div class="col-md-12">
-        <h3>BOGOTÁ</h3>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row inner-padding-minium">
+            <h2 class="text-center page-header text-uppercase">@ViewData["Title"]</h2>
+            <div class="col-md-12">
+                <h3>BOGOTÁ</h3>
+                <div class="row">
+                    <div class="col-md-7">
+                        <p>
+                            <span class="title-bold">Dirección: </span>Calle 150 #10-35 - C.C Las Mascotas
+                        </p>
+                        <p>
+                            <span class="title-bold">Teléfono: </span>4040225 - (+57) 3211234567
+                        </p>
+                        <p>
+                            <span class="title-bold">Correo: </span>costumpetbogota@correo.com
+                        </p>
+                        <p>
+                            <span class="title-bold">Horario de atención: </span>9:00 am - 5:00 pm
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="~/images/sedes/bogota.png" alt="sede-bogotá" title="sede-bogotá" style="width: 100%">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <br>
+            </div>
+            <div class="col-md-12">
+                <h3>CALI</h3>
+                <div class="row">
+                    <div class="col-md-7">
+                        <p>
+                            <span class="title-bold">Dirección: </span>C.C Mascoticas Center Local  209
+                        </p>
+                        <p>
+                            <span class="title-bold">Teléfono: </span>4040225 - (+57) 3201234567
+                        </p>
+                        <p>
+                            <span class="title-bold">Correo: </span>costumpetcali@correo.com
+                        </p>
+                        <p>
+                            <span class="title-bold">Horario de atención: </span>9:00 am - 4:30 pm
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="~/images/sedes/cali.png" alt="sede-cali" title="sede-cali" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-12">
-        <h3>CALI</h3>
+    <div class="col-md-4">
+        <partial name="_Aside"/>
     </div>
 </div>
-
+<br>

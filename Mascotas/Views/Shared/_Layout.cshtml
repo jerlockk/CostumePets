@@ -34,7 +34,7 @@
             <div class="col-md-6">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#" class="color-white">
+                        <a asp-controller="Costum" asp-action="Pqrs" class="color-white">
                             <i class="glyphicon glyphicon-question-sign" aria-hidden="true"></i>
                             Preguntas Frecuentes
                         </a>
@@ -134,14 +134,14 @@
 <environment include="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery-ui.min.js"></script>
     <script src="~/js/jquery.barrating.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 </environment>
 <environment exclude="Development">
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/jquery/dist/jquery-ui.min.js"></script>
     <script src="~/js/jquery.barrating.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 </environment>
 <partial name="_CookieConsentPartial" />
 <div class="inner-padding">
@@ -161,8 +161,8 @@
         <div class="col-md-2">
             <p class="title-bold">DE TU INTERÉS</p>
             <ul id="list-items-footer">
-                <li><a href="#">Mapa de sitio</a></li>
-                <li><a href="#">Preguntas frecuentes</a></li>
+                <li><a asp-controller="Costum" asp-action="MapSite">Mapa de sitio</a></li>
+                <li><a asp-controller="Costum" asp-action="Pqrs">Preguntas frecuentes</a></li>
                 <li><a asp-controller="Costum" asp-action="Contact">Contáctanos</a></li>
             </ul>
             <br>

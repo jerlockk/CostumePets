@@ -109,3 +109,5 @@
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Privacy.g.cshtml.cs
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/_Aside.g.cshtml.cs
 /home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Post.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/MapSite.g.cshtml.cs
+/home/jerlock/RiderProjects/CostumePets/Mascotas/obj/Debug/netcoreapp2.1/Razor/Views/Costum/Pqrs.g.cshtml.cs

@@ -5,10 +5,10 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })" method="post" id="logoutForm">
-        <ul class="dropdown-menu-custom">
+    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new {area = ""})" method="post" id="logoutForm">
+        <ul class="dropdown-menu-custom text-center">
             <li>
-                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" class="btn btn-link navbar-btn navbar-link">Editar perfil</a>
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" class="btn btn-link navbar-btn navbar-link">@User.Identity.Name</a>
             </li>
             <li>
                 <button type="submit" class="btn btn-link navbar-btn navbar-link">Cerrar sesión</button>

@@ -1,7 +1,11 @@
 ﻿// SLIDESHOW PRODUCTS
 
 var items = $('.slideshow-items');
-var itemCount = $('.slideshow-item').length / 4;
+var itemCount = 1;
+var length = $('.slideshow-item').length;
+if ( length >= 4) {
+  itemCount = length / 4;
+}
 var pos = 0;
 
 function setTransform() {
@@ -23,7 +27,11 @@ window.addEventListener('resize', setTransform);
 // SLIDESHOW POSTS
 
 var itemsP = $('.slideshow-items-post');
-var itemCountP = $('.slideshow-item-post').length / 4;
+var itemCountP = 1;
+var lengthP = $('.slideshow-item-post').length;
+if ( lengthP >= 4) {
+  itemCountP = lengthP / 4;
+}
 var posP = 0;
 
 function setTransformPost() {
@@ -78,6 +86,13 @@ $(document).ready(function(){
   }
 
   $('[data-toggle="tooltip"]').tooltip();
+  $( "#accordion" ).accordion({
+    animate: 500,
+    collapsible: true,
+    heightStyle: "content",
+    active: false,
+    icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+  });
 });
 
 

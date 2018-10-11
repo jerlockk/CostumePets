@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Preguntas frecuentes";
+}
+<div class="row inner-padding-minium">
+    <div class="col-md-8">
+        <h2 class="text-center text-uppercase page-header">@ViewData["Title"]</h2>
+        <p style="font-size: 1.5em; color: gray;">Por favor léelas antes de escribirnos. 😉</p>
+        <div id="accordion">
+            <h3><i class="fas fa-angle-down"></i> No tengo tarjetas, ¿cómo puedo pagar?</h3>
+            <div>PayULatam, nuestra plataforma de pagos te permite pagar con cualquier tarjeta o en efectivo en cualquier punto Efecty o Baloto. PayU es nuestro medio de recepción de pagos tanto para compras por esta web como vía WhatsApp.</div>
+            <h3><i class="fas fa-angle-down"></i> ¿Qué garantía tienen los productos?</h3>
+            <div>Los productos fabricados por nuestra marca tienen 30 días de garantía por defectos de fabricación que no incluyen daños causados como consecuencia del uso e intervención del animal.</div>
+            <h3><i class="fas fa-angle-down"></i> ¿Cuánto tarda en llegar mi pedido?</h3>
+            <div>El tiempo máximo de entrega son 72 horas hábiles después de haber sido realizada la compra. Ten en cuenta que si tu compra incluye un producto personalizado, tu envío estará sujeto a su tiempo de producción indicado en la página de producto.</div>
+            <h3><i class="fas fa-angle-down"></i> Si no le queda lo que compré, ¿lo puedo cambiar?</h3>
+            <div>¡Claro que sí! Conservando la prenda etiquetada y en perfectas condiciones y presentando tu factura tienes 30 días calendario para hacer el cambio de talla o de producto en la misma ciudad en la que hiciste la compra. Nuestra tasa de cambio es inferior al 1% de las compras, por lo que la elección de la talla la dejamos en tus manos y, en caso de que compres la equivocada, deberás enviarnos el producto para cambiar junto a la factura y nosotros te regresaremos el nuevo para que pagues el envío contra entrega.</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <partial name="_Aside"/>
+    </div>
+</div>
+
