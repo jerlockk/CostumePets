@@ -130,10 +130,18 @@ namespace Mascotas.Controllers
             return Json("Comentario eliminado con exito");
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            var posts = _context.Posts.Include(x => x.Calificaciones).
+                Include(y => y.Imagenes).Include(z => z.Comentarios).ToListAsync();
+            var productos = _context.Productos.
+                Include(x => x.Imagen).ToListAsync();
+            var share = new ProductoPostMV
+            {
+                Posts = await posts,
+                Productos = await productos
+            };
+            ViewData["Aside"] = share;
             return View();
         }
 
