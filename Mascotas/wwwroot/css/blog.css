@@ -47,6 +47,7 @@ hr {
     transition: box-shadow 0.3s ease;
     padding: 2px 16px;
     margin-bottom: 1.5em;
+    height: 370px;
 }
 
 .card-prod:hover {
@@ -119,7 +120,7 @@ hr {
 }
 
 .categoria-aside img {
-    height: 190px;
+    height: 200px;
     width: 180px;
     transition: transform .8s ease-in-out;
 }

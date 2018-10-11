@@ -93,8 +93,8 @@
                         <div class="row">
                             @foreach (var item in Model.Productoxposts)
                             {
-                                <div class="col-md-6 text-center">
-                                    <img class="img-pp img-effect" src="~/images/Products/@Html.DisplayFor(itemModel => item.Producto.Imagen.ImageUrl)" alt="producto"/>
+                                <div class="col-md-12 text-center">
+                                    <img class="img-pp img-effect" src="~/images/Posts/@Html.DisplayFor(itemModel => item.Producto.Imagen.ImageUrl)" alt="producto"/>
                                     <p class="p-prod-truncate">@Html.DisplayFor(itemModel => item.Producto.Descripcion)</p>
                                 </div>
                             }
